@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Content.css';
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { Route } from "react-router-dom"
 import Configuration from '../Configuration/Configuration';
 import DashBoard from '../DashBoard/DashBoard';
 import Assign from '../Assign/Assign'
@@ -17,8 +17,7 @@ import Vehicule from '../Vehicule/Vehicule'
 import Travel from '../Travel/Travel'
 const Content = () => (
   <div className="col-md-12">
-    <Router>
-      <div>
+    
         <Route exact path="/" component={DashBoard} />
         <Route exact path="/dashboard" component={DashBoard} />
         <Route exact path="/assign" component={Assign} />
@@ -35,8 +34,7 @@ const Content = () => (
         <Route exact path="/configuration" component={Configuration} />
 
 
-      </div>
-    </Router>
+     
 
   </div>
 );

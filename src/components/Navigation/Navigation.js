@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../Header/Header';
 
+import { Link } from "react-router-dom"
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
@@ -16,43 +16,43 @@ class Navigation extends React.Component {
         <div id="main-menu" className="main-menu collapse navbar-collapse">
           <ul className="nav navbar-nav">
             <li className="active">
-              <a href="/dashboard"><i className="menu-icon fa fa-laptop"></i>Tableau de bord </a>
+              <Link to="/dashboard"><i className="menu-icon fa fa-laptop"></i>Tableau de bord </Link>
             </li>
             <li>
-              <a href="/assign"><i className="menu-icon fa fa-laptop"></i>Affectations </a>
+              <Link to="/assign"><i className="menu-icon fa fa-laptop"></i>Affectations </Link>
             </li>
             <li>
-              <a href="/booking"><i className="menu-icon fa fa-laptop"></i>Réservations </a>
+              <Link to="/booking"><i className="menu-icon fa fa-laptop"></i>Réservations </Link>
             </li>
             <li>
-              <a href="/destination"><i className="menu-icon fa fa-laptop"></i>Destinations </a>
+              <Link to="/destination"><i className="menu-icon fa fa-laptop"></i>Destinations </Link>
             </li>
             <li>
-              <a href="/hr"><i className="menu-icon fa fa-laptop"></i>Ressources humaines </a>
+              <Link to="/hr"><i className="menu-icon fa fa-laptop"></i>Ressources humaines </Link>
             </li>
             <li>
-              <a href="/offer"><i className="menu-icon fa fa-laptop"></i>Offres </a>
+              <Link to="/offer"><i className="menu-icon fa fa-laptop"></i>Offres </Link>
             </li>
             <li>
-              <a href="/passanger"><i className="menu-icon fa fa-laptop"></i>Passagers </a>
+              <Link to="/passanger"><i className="menu-icon fa fa-laptop"></i>Passagers </Link>
             </li>
             <li>
-              <a href="/price"><i className="menu-icon fa fa-laptop"></i>Prix </a>
+              <Link to="/price"><i className="menu-icon fa fa-laptop"></i>Prix </Link>
             </li>
             <li>
-              <a href="/route"><i className="menu-icon fa fa-laptop"></i>Routes </a>
+              <Link to="/route"><i className="menu-icon fa fa-laptop"></i>Routes </Link>
             </li>
             <li>
-              <a href="/schedule"><i className="menu-icon fa fa-laptop"></i>Horaires</a>
+              <Link to="/schedule"><i className="menu-icon fa fa-laptop"></i>Horaires</Link>
             </li>
             <li>
-              <a href="/travel"><i className="menu-icon fa fa-laptop"></i>Voyages</a>
+              <Link to="/travel"><i className="menu-icon fa fa-laptop"></i>Voyages</Link>
             </li>
             <li>
-              <a href="/vehicule"><i className="menu-icon fa fa-laptop"></i>Véhicules</a>
+              <Link to="/vehicule"><i className="menu-icon fa fa-laptop"></i>Véhicules</Link>
             </li>
             <li>
-              <a href="/configuration"><i className="menu-icon fa fa-laptop"></i>Paramètres </a>
+              <Link to="/configuration"><i className="menu-icon fa fa-laptop"></i>Paramètres </Link>
             </li>
           </ul>
         </div>
