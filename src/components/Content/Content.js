@@ -18,7 +18,7 @@ import Login from '../Login/Login';
 const Content = () => (
   <div className="col-md-12">
     
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={DashBoard} />
         <Route exact path="/dashboard" component={DashBoard} />
         <Route exact path="/assign" component={Assign} />
         <Route exact path="/booking" component={Booking} />
