@@ -16,6 +16,7 @@ const Assign = () => (
             <th>Nom de la route</th>
             <th>Nom de conducteur</th>
             <th>Statut</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -25,9 +26,13 @@ const Assign = () => (
             <td>3E23</td>
             <td>Anis</td>
             <td>Actif</td>
-
+            <td><button disabled type="button" className="btn btn-primary btn-sm">voir</button>
+              <button disabled type="button" className="btn btn-warning btn-sm">editer</button>
+              <button disabled type="button" className="btn btn-danger btn-sm">Supprimer</button></td>
           </tr></tbody>
       </table>
+      <button  type="button" className="btn btn-success btn-sm">Ajouter</button>
+
     </div>
   </div>
 );
