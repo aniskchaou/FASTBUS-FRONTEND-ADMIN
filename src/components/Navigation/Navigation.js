@@ -1,6 +1,6 @@
 import React from 'react';
-
-import { Link } from "react-router-dom"
+import './Navigation.css';
+import { NavLink } from "react-router-dom"
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
@@ -15,44 +15,44 @@ class Navigation extends React.Component {
 
         <div id="main-menu" className="main-menu collapse navbar-collapse">
           <ul className="nav navbar-nav">
-            <li className="active">
-              <Link to="/dashboard"><i className="menu-icon fa fa-laptop"></i>Tableau de bord </Link>
+            <li>
+              <NavLink activeClassName="activeLink" to="/dashboard"><i className="menu-icon fa fa-laptop"></i>Tableau de bord </NavLink>
             </li>
             <li>
-              <Link to="/assign"><i className="menu-icon fa fa-laptop"></i>Affectations </Link>
+              <NavLink activeClassName="activeLink" to="/assign"><i className="menu-icon fa fa-address-card"></i>Affectations </NavLink>
             </li>
             <li>
-              <Link to="/booking"><i className="menu-icon fa fa-laptop"></i>Réservations </Link>
+              <NavLink activeClassName="activeLink" to="/booking"><i className="menu-icon fa fa-thumbtack"></i>Réservations </NavLink>
             </li>
             <li>
-              <Link to="/destination"><i className="menu-icon fa fa-laptop"></i>Destinations </Link>
+              <NavLink activeClassName="activeLink" to="/destination"><i className="menu-icon fa fa-map-marked"></i>Destinations </NavLink>
             </li>
             <li>
-              <Link to="/hr"><i className="menu-icon fa fa-laptop"></i>Ressources humaines </Link>
+              <NavLink activeClassName="activeLink" to="/hr"><i className="menu-icon fa fa-users"></i>Ressources humaines </NavLink>
             </li>
             <li>
-              <Link to="/offer"><i className="menu-icon fa fa-laptop"></i>Offres </Link>
+              <NavLink activeClassName="activeLink" to="/offer"><i className="menu-icon fa fa-rss"></i>Offres </NavLink>
             </li>
             <li>
-              <Link to="/passanger"><i className="menu-icon fa fa-laptop"></i>Passagers </Link>
+              <NavLink activeClassName="activeLink" to="/passanger"><i className="menu-icon fa fa-user"></i>Passagers </NavLink>
             </li>
             <li>
-              <Link to="/price"><i className="menu-icon fa fa-laptop"></i>Prix </Link>
+              <NavLink activeClassName="activeLink" to="/price"><i className="menu-icon fa fa-dollar-sign"></i>Prix </NavLink>
             </li>
             <li>
-              <Link to="/route"><i className="menu-icon fa fa-laptop"></i>Routes </Link>
+              <NavLink activeClassName="activeLink" to="/route"><i className="menu-icon fa fa-route"></i>Routes </NavLink>
             </li>
             <li>
-              <Link to="/schedule"><i className="menu-icon fa fa-laptop"></i>Horaires</Link>
+              <NavLink activeClassName="activeLink" to="/schedule"><i className="menu-icon fa fa-clock"></i>Horaires</NavLink>
             </li>
             <li>
-              <Link to="/travel"><i className="menu-icon fa fa-laptop"></i>Voyages</Link>
+              <NavLink activeClassName="activeLink" to="/travel"><i className="menu-icon fa fa-suitcase-rolling"></i>Voyages</NavLink>
             </li>
             <li>
-              <Link to="/vehicule"><i className="menu-icon fa fa-laptop"></i>Véhicules</Link>
+              <NavLink activeClassName="activeLink" to="/vehicule"><i className="menu-icon fa fa-bus"></i>Véhicules</NavLink>
             </li>
             <li>
-              <Link to="/configuration"><i className="menu-icon fa fa-laptop"></i>Paramètres </Link>
+              <NavLink activeClassName="activeLink" to="/configuration"><i className="menu-icon fa fa-cog"></i>Paramètres </NavLink>
             </li>
           </ul>
         </div>

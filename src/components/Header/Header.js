@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Header.css';
 
@@ -7,7 +8,7 @@ const Header = () => (
       <header id="header" className="header">
           <div className="top-left">
               <div className="navbar-header">
-                  <a className="navbar-brand" href="./"><img src="images/logo.png" alt="Logo" width="120" height="40"/></a>
+                  <a className="navbar-brand" href="./"><img src="images/logo.png" alt="Logo" /></a>
                   <a className="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo" /></a>
                   <a id="menuToggle" className="menutoggle"><i className="fa fa-bars"></i></a>
               </div>
@@ -64,13 +65,11 @@ const Header = () => (
                       </a>
 
                       <div className="user-menu dropdown-menu">
-                          <a className="nav-link" href="#"><i className="fa fa-user"></i>Mon Profile</a>
+                        
 
-                          <a className="nav-link" href="#"><i className="fa fa-bell-o"></i>Notifications <span className="count">13</span></a>
+                          <Link  to="/configuration" className="nav-link" href="#"><i className="fa fa-cog"></i>Paramètres</Link>
 
-                          <a className="nav-link" href="#"><i className="fa fa-cog"></i>Paramètres</a>
-
-                          <a className="nav-link" href="#"><i className="fa fa-power-off"></i>Déconnexion</a>
+                          <Link to="/" className="nav-link" href="#"><i className="fa fa-power-off"></i>Déconnexion</Link>
                       </div>
                   </div>
               </div>
