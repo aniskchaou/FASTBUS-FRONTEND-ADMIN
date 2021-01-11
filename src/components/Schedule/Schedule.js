@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Schedule.css';
 import AddSchedule from './../AddSchedule/AddSchedule';
+import { LoadJS } from './../init';
+import ViewSchedule from './../ViewSchedule/ViewSchedule';
+import EditSchedule from './../EditSchedule/EditSchedule';
 
-const Schedule = () => (
+const Schedule = () => {
+  useEffect(() => {
+    // Runs ONCE after initial rendering
+    LoadJS()
+  
+  }, []);
+  
+  return(
   <div className="card">
   <div className="card-header">
     <strong className="card-title">Horaires</strong>
@@ -25,9 +35,9 @@ const Schedule = () => (
                     <td>14:00</td>
                     <td>16:00</td>
                     <th>2</th>
-                    <td><button  type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
-                        <button  type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                        <button  type="button" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+                    <td>
+                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
                   </tr></tbody>
     </table>
     <button data-toggle="modal" data-target="#addSchedule" type="button" className="btn btn-success btn-sm">Ajouter</button>
@@ -50,9 +60,49 @@ const Schedule = () => (
           </div>
         </div>
       </div>
+      <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <EditSchedule/>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+           <ViewSchedule/>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
   </div>
 </div>
-);
+)};
 
 Schedule.propTypes = {};
 

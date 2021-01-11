@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './HR.css';
 import AddHR from './../AddHR/AddHR';
+import { LoadJS } from './../init';
 
-const HR = () => (
+const HR = () => {
+  useEffect(() => {
+    // Runs ONCE after initial rendering
+    LoadJS()
+  
+  }, []);
+  return(
   <div className="card">
   <div className="card-header">
     <strong className="card-title">Ressource Humaines</strong>
@@ -55,7 +62,7 @@ const HR = () => (
       </div>
   </div>
 </div>
-);
+)};
 
 HR.propTypes = {};
 
