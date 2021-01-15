@@ -28,7 +28,6 @@ const Travel = () => {
             <th>Nom de route</th>
             <th>Date</th>
             <th>Horaire</th>
-            <th>Type</th>
             <th>distance</th>
             <th>durée</th>
             <th>Statut</th>
@@ -37,18 +36,44 @@ const Travel = () => {
         </thead>
         <tbody>
           <tr>
-            <td>Nice-Pris</td>
+            <td className="badge badge-primary">COLOMIERS-PUTEAUX</td>
             <td>32E32</td>
-            <td>22/10</td>
-            <th>12:00</th>
-            <th></th>
-            <th>223</th>
-            <th>43</th>
-            <th>Actif</th>
+            <td>07/11/2020</td>
+            <td>12h00</td>
+            <td>223</td>
+            <td>43</td>
+            <td className="badge badge-success">Active</td>
             <td>
                         <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                         <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-          </tr></tbody>
+          </tr>
+          <tr>
+            <td className="badge badge-primary">LES ABYMES-SAINT-PAUL</td>
+            <td>98U8J880</td>
+            <td>2/8/2020</td>
+            <td>11h00</td>
+            
+            <td>223</td>
+            <td>43</td>
+            <td className="badge badge-success">Active</td>
+            <td>
+                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+          
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>Titre de voyage</th>
+            <th>Nom de route</th>
+            <th>Date</th>
+            <th>Horaire</th>
+            <th>distance</th>
+            <th>durée</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
+        </tfoot>
       </table>
       <button data-toggle="modal" data-target="#addTravel" type="button" className="btn btn-success btn-sm">Ajouter</button>
       <div class="modal fade" id="addTravel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -65,7 +90,7 @@ const Travel = () => {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+             
             </div>
           </div>
         </div>
@@ -85,7 +110,7 @@ const Travel = () => {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              
             </div>
           </div>
         </div>
@@ -105,7 +130,7 @@ const Travel = () => {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+            
             </div>
           </div>
         </div>

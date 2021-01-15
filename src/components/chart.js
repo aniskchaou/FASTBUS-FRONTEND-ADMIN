@@ -6,7 +6,7 @@ export function drawChart() {
     let labels =  ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
     var ctx1 = document.getElementsByClassName("book-chart");
 
-    renderChart(data, labels,ctx1,'rgb(255, 99, 132)');
+    renderChart(data, labels,ctx1,'rgba(53, 253, 13, 1)');
    
   }
 

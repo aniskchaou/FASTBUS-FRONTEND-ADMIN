@@ -34,19 +34,33 @@ const Routes = () => {
         </thead>
         <tbody>
           <tr>
-            <td>AZDE</td>
-            <td>nice</td>
-            <td>paris</td>
-            <td>lyon</td>
-            <td>22</td>
-            <td>22</td>
+            <td>8Y8Y779T</td>
+            <td className="badge badge-primary">POISSY</td>
+            <td>SAINT-PAUL</td>
+            <td className="badge badge-secondary">NICE</td>
+            <td>226 km </td>
+            <td>2h</td>
             <td>3</td>
-            <td>1</td>
-            <td>Actif</td>
+            <td>1A</td>
+            <td className="badge badge-success">Active</td>
             <td>
                         <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                         <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
           </tr></tbody>
+          <tfoot>
+          <tr>
+            <th>Nom Route</th>
+            <th>Point de depart</th>
+            <th>Point final</th>
+            <th>Point d'arret</th>
+            <th>Distance</th>
+            <th>Temps Approximatif</th>
+            <th>Siege enfant </th>
+            <th>Siege principale</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
+        </tfoot>
       </table>
       <button  type="button" data-toggle="modal" data-target="#addRoute" className="btn btn-success btn-sm">Ajouter</button>
       <div class="modal fade" id="addRoute" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

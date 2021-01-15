@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './DashBoard.css';
 import { drawChart } from './../chart';
+import Travel from '../Travel/Travel';
 
 
 const DashBoard = () => {
@@ -105,6 +106,10 @@ const DashBoard = () => {
           </div>
         </div>
       </div>
+
+      <div className="col-md-12">
+       <Travel/>
+        </div>
     </div>
 
   )

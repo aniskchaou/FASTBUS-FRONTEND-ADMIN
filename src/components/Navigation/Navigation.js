@@ -27,9 +27,7 @@ class Navigation extends React.Component {
             <li>
               <NavLink activeClassName="activeLink" to="/destination"><i className="menu-icon fa fa-map-marked"></i>Destinations </NavLink>
             </li>
-            <li>
-              <NavLink activeClassName="activeLink" to="/hr"><i className="menu-icon fa fa-users"></i>Ressources humaines </NavLink>
-            </li>
+  
             <li>
               <NavLink activeClassName="activeLink" to="/offer"><i className="menu-icon fa fa-rss"></i>Offres </NavLink>
             </li>

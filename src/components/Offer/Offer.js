@@ -31,16 +31,43 @@ const Offer = () => {
         </thead>
         <tbody>
           <tr>
-            <td>3EE3</td>
+            <td>3EE32E2</td>
             <td>22/10/2020</td>
-            <td>24/10/2020</td>
+            <td>22/10/2020</td>
             <td>13E2</td>
-            <td>21</td>
-            <td>AZAZAD</td>
+            <td className="badge badge-primary">20%</td>
+            <td>REZÉ</td>
             <td><button  data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
                         <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                         <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-          </tr></tbody>
+          </tr>
+          <tr>
+            <td>232D32</td>
+            <td>1/4/2020</td>
+            <td>1/4/2020</td>
+            <td>23ED2</td>
+            <td className="badge badge-primary">11%</td>
+            <td>MARCQ-EN-BAROEUL</td>
+            <td><button  data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
+                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+          
+          
+          
+          
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>Nom offre</th>
+            <th>Date debut</th>
+            <th>Date fin</th>
+            <th>Code offre</th>
+            <th>Remise</th>
+            <th>Nom de route</th>
+            <th>Actions</th>
+          </tr>
+        </tfoot>
       </table>
       <button  data-toggle="modal" data-target="#addOffer" type="button" className="btn btn-success btn-sm">Ajouter</button>
       <div class="modal fade" id="addOffer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

@@ -35,18 +35,55 @@ const Booking = () => {
         </thead>
         <tbody>
           <tr>
-            <td>22/11/2020</td>
-            <td>Anis</td>
-            <td>233E2</td>
-            <th>2</th>
-            <th>22</th>
-            <th>223,22</th>
-            <th>Espece</th>
-            <th>Actif</th>
+            <td>3/1/2020</td>
+            <td>Orson Brasseur</td>
+            <td>33D24F34</td>
+            <td>2A</td>
+            <td className="badge badge-primary">22$</td>
+            <td>222</td>
+            <td>Virement bancaire</td>
+            <td className="badge badge-success">Active</td>
             <td><button  data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
                         <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                         <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-          </tr></tbody>
+          </tr>
+
+
+
+          <tr>
+            <td>23/5/2020</td>
+            <td>Raymond Rhéaume</td>
+            <td>3322D23D</td>
+            <td>2B</td>
+            <td className="badge badge-primary">12$</td>
+            <td>22</td>
+            <td>Virement bancaire</td>
+            <td className="badge badge-success">Active</td>
+            <td><button  data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
+                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+
+         
+          
+          
+          
+          
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>Date reservation</th>
+            <th>Nom de passager</th>
+            <th>Nom route</th>
+            <th>siege</th>
+            <th>Prix</th>
+            <th>Numero siege</th>
+            <th>Type paiement</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
+        </tfoot>
+     
       </table>
       <button  type="button" data-toggle="modal" data-target="#addBooking" className="btn btn-success btn-sm">Ajouter</button>
       <div class="modal fade" id="addBooking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

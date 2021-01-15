@@ -32,12 +32,44 @@ const Vehicule = () => {
           <tr>
             <td>SEZ2E</td>
             <td>bus</td>
-            <td>toyota</td>
+            <td className="badge badge-primary">Toyota Hiace </td>
             <td>aZS1Z-66</td>
             <td>
                         <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                         <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-          </tr></tbody>
+          </tr>
+          
+          <tr>
+            <td>E3H3H33</td>
+            <td>bus</td>
+            <td className="badge badge-primary">MAN SUNSTAR ATOMIC</td>
+            <td>35Y4H43334</td>
+            <td>
+                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+          
+          <tr>
+            <td>23T44T42</td>
+            <td>bus</td>
+            <td className="badge badge-primary">MERCEDES-BENZ Toursimo</td>
+            <td>G334EG334</td>
+            <td>
+                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+          
+          
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>N enregistrement</th>
+            <th>Type</th>
+            <th>modele</th>
+            <th>Chasssis</th>
+            <th>Actions</th>
+          </tr>
+        </tfoot>
       </table>
       <button  data-toggle="modal" data-target="#addVehicule" type="button" className="btn btn-success btn-sm">Ajouter</button>
       <div class="modal fade" id="addVehicule" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

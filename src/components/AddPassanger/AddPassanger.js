@@ -9,7 +9,7 @@ const AddPassanger = () => (
       <input type="hidden" name="id" value="" />
       <input type="hidden" name="id_no" value="PRZNI90F" />
       <div class="form-group row">
-        <label for="name" class="col-sm-3 col-form-label"><font     ><font     >Nom *</font></font></label>
+        <label for="name" class="col-sm-3 col-form-label"> Nom *  </label>
         <div class="col-sm-9">
           <div class="row">
             <div class="col-sm-4">
@@ -25,32 +25,32 @@ const AddPassanger = () => (
         </div>
       </div>
       <div class="form-group row">
-        <label for="phone" class="col-sm-3 col-form-label"><font     ><font     >Téléphone</font></font></label>
+        <label for="phone" class="col-sm-3 col-form-label"> Téléphone  </label>
         <div class="col-sm-9">
           <input name="phone" class="form-control" type="text" placeholder="Téléphone" id="phone" value="" />
         </div>
       </div>
       <div class="form-group row">
-        <label for="email" class="col-sm-3 col-form-label"><font     ><font     >Email *</font></font></label>
+        <label for="email" class="col-sm-3 col-form-label"> Email *  </label>
         <div class="col-sm-9">
           <input name="email" class="form-control" type="email" placeholder="Email" id="email" value="" required="" />
         </div>
       </div>
       <div class="form-group row">
-        <label for="password" class="col-sm-3 col-form-label"><font     ><font     >Mot de passe *</font></font></label>
+        <label for="password" class="col-sm-3 col-form-label"> Mot de passe *  </label>
         <div class="col-sm-9">
           <input name="password" class="form-control" type="password" placeholder="Mot de passe" id="password" />
           <input name="old_password" class="form-control" type="hidden" placeholder="Mot de passe" id="old_password" value="" />
         </div>
       </div>
       <div class="form-group row">
-        <label for="email" class="col-sm-3 col-form-label"><font     ><font     >Carte d'identité *</font></font></label>
+        <label for="email" class="col-sm-3 col-form-label"> Carte d'identité *  </label>
         <div class="col-sm-9">
           <input name="nid" class="form-control" type="text" placeholder="carte d'identité" id="nid" value="" required="" />
         </div>
       </div>
       <div class="form-group row">
-        <label for="image" class="col-sm-3 col-form-label"><font     ><font     >Image</font></font></label>
+        <label for="image" class="col-sm-3 col-form-label"> Image  </label>
         <div class="col-sm-9">
           <div class="row">
             <div class="col-sm-2">
@@ -65,62 +65,62 @@ const AddPassanger = () => (
         <input type="hidden" name="old_image" value="" />
       </div>
       <div class="form-group row">
-        <label for="address_line_1" class="col-sm-3 col-form-label"><font     ><font     >Adresse 1</font></font></label>
+        <label for="address_line_1" class="col-sm-3 col-form-label"> Adresse 1  </label>
         <div class="col-sm-9">
           <input name="address_line_1" class="form-control" type="text" placeholder="Adresse 1" id="address_line_1" value="" />
         </div>
       </div>
       <div class="form-group row">
-        <label for="address_line_2" class="col-sm-3 col-form-label"><font     ><font     >Adresse Ligne 2</font></font></label>
+        <label for="address_line_2" class="col-sm-3 col-form-label"> Adresse Ligne 2  </label>
         <div class="col-sm-9">
           <input name="address_line_2" class="form-control" type="text" placeholder="Adresse Ligne 2" id="address_line_2" value="" />
         </div>
       </div>
       <div class="form-group row">
-        <label for="country" class="col-sm-3 col-form-label"><font     ><font     >Pays</font></font></label>
+        <label for="country" class="col-sm-3 col-form-label"> Pays  </label>
         <div class="col-sm-9">
           <select name="country" class="form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-            <option value=""><font     ><font     >Sélectionnez une option</font></font></option>
-            <option value="AF"><font     ><font     >Afghanistan</font></font></option>
-            <option value="AL"><font     ><font     >Albanie</font></font></option>
-            <option value="DZ"><font     ><font     >Algérie</font></font></option>
-            <option value="AS"><font     ><font     >Samoa américaines</font></font></option>
-            <option value="AD"><font     ><font     >Andorre</font></font></option>
-            <option value="AO"><font     ><font     >Angola</font></font></option>
-            <option value="AI"><font     ><font     >Anguilla</font></font></option>
-            <option value="AQ"><font     ><font     >Antarctique</font></font></option>
-            <option value="AG"><font     ><font     >Antigua-et-Barbuda</font></font></option>
-            <option value="AR"><font     ><font     >Argentine</font></font></option>
-            <option value="AM"><font     ><font     >Arménie</font></font></option>
-            <option value="AW"><font     ><font     >Aruba</font></font></option>
-            <option value="AU"><font     ><font     >Australie</font></font></option>
-            <option value="AT"><font     ><font     >L'Autriche</font></font></option>
-            <option value="AZ"><font     ><font     >Azerbaïdjan</font></font></option>
-            <option value="BS"><font     ><font     >Bahamas</font></font></option>
-            <option value="BH"><font     ><font     >Bahreïn</font></font></option>
-            <option value="BD" selected="selected"><font     ><font     >Bangladesh</font></font></option>
-            <option value="BB"><font     ><font     >Barbade</font></font></option>
-            <option value="BY"><font     ><font     >Biélorussie</font></font></option>
-            <option value="BE"><font     ><font     >Belgique</font></font></option>
-            <option value="BZ"><font     ><font     >Belize</font></font></option>
-            <option value="BJ"><font     ><font     >Bénin</font></font></option>
-            <option value="BM"><font     ><font     >Bermudes</font></font></option>
-            <option value="BT"><font     ><font     >Bhoutan</font></font></option>
-            <option value="BO"><font     ><font     >Bolivie</font></font></option>
-            <option value="BA"><font     ><font     >Bosnie Herzégovine</font></font></option>
-            <option value="BW"><font     ><font     >Botswana</font></font></option>
-            <option value="BV"><font     ><font     >Île Bouvet</font></font></option>
-            <option value="BR"><font     ><font     >Brésil</font></font></option>
-            <option value="IO"><font     ><font     >Territoire britannique de l'océan Indien</font></font></option>
-            <option value="BN"><font     ><font     >Brunei Darussalam</font></font></option>
-            <option value="BG"><font     ><font     >Bulgarie</font></font></option>
-            <option value="BF"><font     ><font     >Burkina Faso</font></font></option>
-            <option value="BI"><font     ><font     >Burundi</font></font></option>
-            <option value="KH"><font     ><font     >Cambodge</font></font></option>
-            <option value="CM"><font     ><font     >Cameroun</font></font></option>
-            <option value="CA"><font     ><font     >Canada</font></font></option>
-            <option value="CV"><font     ><font     >Cap-Vert</font></font></option>
-            <option value="KY"><font     ><font     >Îles Caïmans</font></font></option>
+            <option value=""> Sélectionnez une option  </option>
+            <option value="AF"> Afghanistan  </option>
+            <option value="AL"> Albanie  </option>
+            <option value="DZ"> Algérie  </option>
+            <option value="AS"> Samoa américaines  </option>
+            <option value="AD"> Andorre  </option>
+            <option value="AO"> Angola  </option>
+            <option value="AI"> Anguilla  </option>
+            <option value="AQ"> Antarctique  </option>
+            <option value="AG"> Antigua-et-Barbuda  </option>
+            <option value="AR"> Argentine  </option>
+            <option value="AM"> Arménie  </option>
+            <option value="AW"> Aruba  </option>
+            <option value="AU"> Australie  </option>
+            <option value="AT"> L'Autriche  </option>
+            <option value="AZ"> Azerbaïdjan  </option>
+            <option value="BS"> Bahamas  </option>
+            <option value="BH"> Bahreïn  </option>
+            <option value="BD" selected="selected"> Bangladesh  </option>
+            <option value="BB"> Barbade  </option>
+            <option value="BY"> Biélorussie  </option>
+            <option value="BE"> Belgique  </option>
+            <option value="BZ"> Belize  </option>
+            <option value="BJ"> Bénin  </option>
+            <option value="BM"> Bermudes  </option>
+            <option value="BT"> Bhoutan  </option>
+            <option value="BO"> Bolivie  </option>
+            <option value="BA"> Bosnie Herzégovine  </option>
+            <option value="BW"> Botswana  </option>
+            <option value="BV"> Île Bouvet  </option>
+            <option value="BR"> Brésil  </option>
+            <option value="IO"> Territoire britannique de l'océan Indien  </option>
+            <option value="BN"> Brunei Darussalam  </option>
+            <option value="BG"> Bulgarie  </option>
+            <option value="BF"> Burkina Faso  </option>
+            <option value="BI"> Burundi  </option>
+            <option value="KH"> Cambodge  </option>
+            <option value="CM"> Cameroun  </option>
+            <option value="CA"> Canada  </option>
+            <option value="CV"> Cap-Vert  </option>
+            <option value="KY"> Îles Caïmans  </option>
             <option value="CF">Central African Republic</option>
             <option value="TD">Chad</option>
             <option value="CL">Chile</option>
@@ -275,82 +275,82 @@ const AddPassanger = () => (
             <option value="SG">Singapore</option>
             <option value="SK">Slovakia</option>
             <option value="SI">Slovenia</option>
-            <option value="SB"><font     ><font     >îles Salomon</font></font></option>
-            <option value="SO"><font     ><font     >Somalie</font></font></option>
-            <option value="ZA"><font     ><font     >Afrique du Sud</font></font></option>
-            <option value="GS"><font     ><font     >Géorgie du Sud et îles Sandwich du Sud</font></font></option>
-            <option value="ES"><font     ><font     >Espagne</font></font></option>
-            <option value="LK"><font     ><font     >Sri Lanka</font></font></option>
-            <option value="SD"><font     ><font     >Soudan</font></font></option>
-            <option value="SR"><font     ><font     >Suriname</font></font></option>
-            <option value="SJ"><font     ><font     >Svalbard et Jan Mayen</font></font></option>
-            <option value="SZ"><font     ><font     >Swaziland</font></font></option>
-            <option value="SE"><font     ><font     >Suède</font></font></option>
-            <option value="CH"><font     ><font     >Suisse</font></font></option>
-            <option value="SY"><font     ><font     >République arabe syrienne</font></font></option>
-            <option value="TW"><font     ><font     >Taiwan, Province de Chine</font></font></option>
-            <option value="TJ"><font     ><font     >Tadjikistan</font></font></option>
-            <option value="TZ"><font     ><font     >Tanzanie, République-Unie de</font></font></option>
-            <option value="TH"><font     ><font     >Thaïlande</font></font></option>
-            <option value="TL"><font     ><font     >Timor-Leste</font></font></option>
-            <option value="TG"><font     ><font     >Aller</font></font></option>
-            <option value="TK"><font     ><font     >Tokelau</font></font></option>
-            <option value="TO"><font     ><font     >Tonga</font></font></option>
-            <option value="TT"><font     ><font     >Trinité-et-Tobago</font></font></option>
-            <option value="TN"><font     ><font     >Tunisie</font></font></option>
-            <option value="TR"><font     ><font     >dinde</font></font></option>
-            <option value="TM"><font     ><font     >Turkménistan</font></font></option>
-            <option value="TC"><font     ><font     >îles Turques-et-Caïques</font></font></option>
-            <option value="TV"><font     ><font     >Tuvalu</font></font></option>
-            <option value="UG"><font     ><font     >Ouganda</font></font></option>
-            <option value="UA"><font     ><font     >Ukraine</font></font></option>
-            <option value="AE"><font     ><font     >Emirats Arabes Unis</font></font></option>
-            <option value="GB"><font     ><font     >Royaume-Uni</font></font></option>
-            <option value="US"><font     ><font     >États Unis</font></font></option>
-            <option value="UM"><font     ><font     >Îles mineures éloignées des États-Unis</font></font></option>
-            <option value="UY"><font     ><font     >Uruguay</font></font></option>
-            <option value="UZ"><font     ><font     >Ouzbékistan</font></font></option>
-            <option value="VU"><font     ><font     >Vanuatu</font></font></option>
-            <option value="VE"><font     ><font     >Venezuela</font></font></option>
-            <option value="VN"><font     ><font     >Viet Nam</font></font></option>
-            <option value="VG"><font     ><font     >Îles Vierges britanniques</font></font></option>
-            <option value="VI"><font     ><font     >Iles Vierges Américaines</font></font></option>
-            <option value="WF"><font     ><font     >Wallis et Futuna</font></font></option>
-            <option value="EH"><font     ><font     >Sahara occidental</font></font></option>
-            <option value="YE"><font     ><font     >Yémen</font></font></option>
-            <option value="ZM"><font     ><font     >Zambie</font></font></option>
-            <option value="ZW"><font     ><font     >Zimbabwe</font></font></option>
+            <option value="SB"> îles Salomon  </option>
+            <option value="SO"> Somalie  </option>
+            <option value="ZA"> Afrique du Sud  </option>
+            <option value="GS"> Géorgie du Sud et îles Sandwich du Sud  </option>
+            <option value="ES"> Espagne  </option>
+            <option value="LK"> Sri Lanka  </option>
+            <option value="SD"> Soudan  </option>
+            <option value="SR"> Suriname  </option>
+            <option value="SJ"> Svalbard et Jan Mayen  </option>
+            <option value="SZ"> Swaziland  </option>
+            <option value="SE"> Suède  </option>
+            <option value="CH"> Suisse  </option>
+            <option value="SY"> République arabe syrienne  </option>
+            <option value="TW"> Taiwan, Province de Chine  </option>
+            <option value="TJ"> Tadjikistan  </option>
+            <option value="TZ"> Tanzanie, République-Unie de  </option>
+            <option value="TH"> Thaïlande  </option>
+            <option value="TL"> Timor-Leste  </option>
+            <option value="TG"> Aller  </option>
+            <option value="TK"> Tokelau  </option>
+            <option value="TO"> Tonga  </option>
+            <option value="TT"> Trinité-et-Tobago  </option>
+            <option value="TN"> Tunisie  </option>
+            <option value="TR"> dinde  </option>
+            <option value="TM"> Turkménistan  </option>
+            <option value="TC"> îles Turques-et-Caïques  </option>
+            <option value="TV"> Tuvalu  </option>
+            <option value="UG"> Ouganda  </option>
+            <option value="UA"> Ukraine  </option>
+            <option value="AE"> Emirats Arabes Unis  </option>
+            <option value="GB"> Royaume-Uni  </option>
+            <option value="US"> États Unis  </option>
+            <option value="UM"> Îles mineures éloignées des États-Unis  </option>
+            <option value="UY"> Uruguay  </option>
+            <option value="UZ"> Ouzbékistan  </option>
+            <option value="VU"> Vanuatu  </option>
+            <option value="VE"> Venezuela  </option>
+            <option value="VN"> Viet Nam  </option>
+            <option value="VG"> Îles Vierges britanniques  </option>
+            <option value="VI"> Iles Vierges Américaines  </option>
+            <option value="WF"> Wallis et Futuna  </option>
+            <option value="EH"> Sahara occidental  </option>
+            <option value="YE"> Yémen  </option>
+            <option value="ZM"> Zambie  </option>
+            <option value="ZW"> Zimbabwe  </option>
           </select><span class="select2 select2-container select2-container--default" dir="ltr" ><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-country-qc-container"><span class="select2-selection__rendered" id="select2-country-qc-container" title="Bangladesh"><span class="select2-selection__clear">×</span>Bangladesh</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
         </div>
       </div>
       <div class="form-group row">
-        <label for="city" class="col-sm-3 col-form-label"><font     ><font     >Ville</font></font></label>
+        <label for="city" class="col-sm-3 col-form-label"> Ville  </label>
         <div class="col-sm-9">
           <input name="city" class="form-control" type="text" placeholder="Ville" id="city" value="" />
         </div>
       </div>
       <div class="form-group row">
-        <label for="zip_code" class="col-sm-3 col-form-label"><font     ><font     >Code postal</font></font></label>
+        <label for="zip_code" class="col-sm-3 col-form-label"> Code postal  </label>
         <div class="col-sm-9">
           <input name="zip_code" class="form-control" type="text" placeholder="Code postal" id="zip_code" value="" />
         </div>
       </div>
       <div class="form-group row">
-        <label for="status" class="col-sm-3 col-form-label"><font     ><font     >Statut *</font></font></label>
+        <label for="status" class="col-sm-3 col-form-label"> Statut *  </label>
         <div class="col-sm-9">
           <label class="radio-inline">
-            <input type="radio" name="status" value="1" id="status" /><font     ><font     >
+            <input type="radio" name="status" value="1" id="status" /> 
               actif
-</font></font></label>
+  </label>
           <label class="radio-inline">
-            <input type="radio" name="status" value="0" id="status" /><font     ><font     >
+            <input type="radio" name="status" value="0" id="status" /> 
               Inactif
-</font></font></label>
+  </label>
         </div>
       </div>
       <div class="form-group text-right">
-        <button type="reset" class="btn btn-primary w-md m-b-5"><font     ><font     >Réinitialiser</font></font></button>
-        <button type="submit" class="btn btn-success w-md m-b-5"><font     ><font     >sauver</font></font></button>
+        <button type="reset" class="btn btn-primary w-md m-b-5"> Réinitialiser  </button>
+        <button type="submit" class="btn btn-success w-md m-b-5"> sauver  </button>
       </div>
     </form>
   </div>

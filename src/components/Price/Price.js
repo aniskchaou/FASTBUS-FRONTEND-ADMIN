@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import './Price.css';
 import AddPassanger from './../AddPassanger/AddPassanger';
 import { LoadJS } from './../init';
+import AddPrice from './../AddPrice/AddPrice';
 
 const Price = () => {
   useEffect(() => {
@@ -31,15 +32,37 @@ const Price = () => {
         </thead>
         <tbody>
           <tr>
-            <td>3EE3</td>
+            <td>3EE33TG</td>
             <td>bus</td>
-            <td>213</td>
-            <td>21</td>
-            <td>23</td>
+            <td className="badge badge-primary">213$</td>
+            <td>21$</td>
+            <td>23$</td>
             <td>
                         <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                         <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-          </tr></tbody>
+          </tr>
+          <tr>
+            <td>K99J9UJ9</td>
+            <td>bus</td>
+            <td className="badge badge-primary">343$</td>
+            <td>65$</td>
+            <td>78$</td>
+            <td>
+                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+          
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>Nom route</th>
+            <th>Type de vehicule</th>
+            <th>Prix</th>
+            <th>Prix enfant</th>
+            <th>Prix Special</th>
+            <th>Actions</th>
+          </tr>
+        </tfoot>
       </table>
       <button data-toggle="modal" data-target="#addPrice" type="button" className="btn btn-success btn-sm">Ajouter</button>
       <div class="modal fade" id="addPrice" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -52,7 +75,7 @@ const Price = () => {
               </button>
             </div>
             <div class="modal-body">
-            <AddPassanger/>
+            <AddPrice/>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

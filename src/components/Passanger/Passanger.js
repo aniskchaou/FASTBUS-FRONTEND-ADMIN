@@ -32,14 +32,36 @@ const Passanger = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Anis</td>
-              <td>anis@gmail.com</td>
-              <td> </td>
-              <td>Paris</td>
+              <td>Yves Courtois</td>
+              <td>YvesCourtois@rhyta.com</td>
+              <td>31, Cours Marechal-Joffre 95170 </td>
+              <td>DEUIL-LA-BARRE</td>
               <td><button  data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
                         <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                         <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr></tbody>
+            </tr>
+            <tr>
+              <td>Dominic Thibault</td>
+              <td>DominicThibault@dayrep.com</td>
+              
+              <td>55, place Stanislas
+44000 </td>
+              <td>NANTES</td>
+              <td><button  data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
+                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+            </tr>
+            
+            </tbody>
+            <tfoot>
+            <tr>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Adresse</th>
+              <th>Ville</th>
+              <th>Actions</th>
+            </tr>
+          </tfoot>
         </table>
         <button data-toggle="modal" data-target="#addPassanger" type="button" className="btn btn-success btn-sm">Ajouter</button>
         <div class="modal fade" id="addPassanger" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

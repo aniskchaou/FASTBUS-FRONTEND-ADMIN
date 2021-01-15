@@ -33,12 +33,35 @@ const HR = () => {
                     <td>3EE3</td>
                     <td>223S2</td>
                     <td>3E23</td>
-                    <td>Anis</td>
-                    <td>Actif</td>
+                    <td>Octave Pitre</td>
+                    <td>Active</td>
                     <td><button  type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
                         <button  type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                         <button  type="button" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-                  </tr></tbody>
+                  </tr>
+                  <tr>
+                    <td>3TT3T2</td>
+                    <td>3TG4G</td>
+                    <td>324G43</td>
+                    <td>Zurie Deblois</td>
+                    <td>Active</td>
+                    <td><button  type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
+                        <button  type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+                  </tr>
+                  
+                  
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Nom voyage</th>
+                    <th>No enregistrement</th>
+                    <th>Nom de la route</th>
+                    <th>Nom de conducteur</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                  </tr>
+                  </tfoot>
     </table>
     <button  data-toggle="modal" data-target="#addHR" type="button" className="btn btn-success btn-sm">Ajouter</button>
     <div class="modal fade" id="addHR" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

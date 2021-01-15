@@ -32,13 +32,31 @@ const Schedule = () => {
                   </thead>
                   <tbody>
                   <tr>
-                    <td>14:00</td>
-                    <td>16:00</td>
-                    <th>2</th>
+                    <td>14h00</td>
+                    <td>16h00</td>
+                    <th>2 heures</th>
                     <td>
                         <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                         <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-                  </tr></tbody>
+                  </tr>
+                  <tr>
+                    <td>10h00</td>
+                    <td>13h00</td>
+                    <th>3 heures</th>
+                    <td>
+                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+                  </tr>
+                  
+                  </tbody><tfoot>
+                  <tr>
+                    <th>Date debut</th>
+                    <th>Date fin</th>
+                    <th>Durée</th>
+                    <th>Actions</th>
+                    
+                  </tr>
+                  </tfoot>
     </table>
     <button data-toggle="modal" data-target="#addSchedule" type="button" className="btn btn-success btn-sm">Ajouter</button>
     <div class="modal fade" id="addSchedule" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

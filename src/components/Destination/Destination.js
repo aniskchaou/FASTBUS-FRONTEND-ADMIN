@@ -31,13 +31,34 @@ const Destination = () => {
         </thead>
         <tbody>
           <tr>
-            <td>Pris</td>
-            <td>desc</td>
-            <td>Actif</td>
+            <td>BIARRITZ</td>
+            <td>BIARRITZ</td>
+            <td className="badge badge-success">Active</td>
             <td>
                         <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                         <button  type="button" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-          </tr></tbody>
+          </tr>
+
+          <tr>
+            <td>REZÉ</td>
+            <td>REZÉ</td>
+            <td className="badge badge-success">Active</td>
+            <td>
+                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                        <button  type="button" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+          
+          
+          
+          </tbody>
+          <tfoot>
+          <tr>
+            <th>Nom destination</th>
+            <th>description</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
+        </tfoot>
       </table>
       <button  data-toggle="modal" data-target="#addDestination" type="button" className="btn btn-success btn-sm">Ajouter</button>
       <div class="modal fade" id="addDestination" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
