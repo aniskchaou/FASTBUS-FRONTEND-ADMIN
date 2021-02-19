@@ -1,17 +1,77 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Passanger.css';
-import AddPassanger from './../AddPassanger/AddPassanger';
 import { LoadJS } from '../../../libraries/datatables/datatables';
-import ViewPassanger from '../ViewPassanger/ViewPassanger';
-import EditPassanger from './../EditPassanger/EditPassanger';
+import EditPassanger from '../EditPassanger/EditPassanger';
+import AddPassanger from '../AddPassanger/AddPassanger';
+import useForceUpdate from 'use-force-update';
+import showMessage from '../../../libraries/messages/messages';
+import passangerMessage from '../../../main/messages/passangerMessage';
+import PassangerTestService from '../../../main/mocks/PassangerTestService';
+import HTTPService from '../../../main/services/HTTPService';
 
 const Passanger = () => {
 
-  useEffect(() => {
-    // Runs ONCE after initial rendering
-    LoadJS()
+  const [passangers, setPassangers] = useState([]);
+  const [updatedItem, setUpdatedItem] = useState({});
+  const forceUpdate = useForceUpdate();
 
+
+  useEffect(() => {
+    LoadJS()
+    retrievePassangers()
   }, []);
+
+
+  const getAll = () => {
+    HTTPService.getAll()
+      .then(response => {
+        setPassangers(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
+  const removeOne = (data) => {
+    HTTPService.remove(data)
+      .then(response => {
+
+      })
+      .catch(e => {
+
+      });
+  }
+
+
+
+  const retrievePassangers = () => {
+    var passangers = PassangerTestService.getAll();
+    setPassangers(passangers);
+  };
+
+  const resfresh = () => {
+    retrievePassangers()
+    forceUpdate()
+  }
+
+  const remove = (e, data) => {
+    e.preventDefault();
+    var r = window.confirm("Etes-vous sûr que vous voulez supprimer ?");
+    if (r) {
+      showMessage('Confirmation', passangerMessage.delete, 'success')
+      PassangerTestService.remove(data)
+      //removeOne(data)
+      resfresh()
+    }
+
+  }
+
+  const update = (e, data) => {
+    e.preventDefault();
+    setUpdatedItem(data)
+    resfresh()
+  }
+
 
   return (
     <div className="card">
@@ -31,29 +91,48 @@ const Passanger = () => {
             </tr>
           </thead>
           <tbody>
+
+            {passangers.map(item =>
+              <tr>
+                <td>{item.first_name}</td>
+                <td>{item.email}</td>
+                <td>{item.address}</td>
+                <td>DEUIL-LA-BARRE</td>
+                <td>
+                  <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                  <button onClick={e => remove(e, passangers.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                </td>
+              </tr>
+            )}
+
+
+
             <tr>
               <td>Yves Courtois</td>
               <td>YvesCourtois@rhyta.com</td>
               <td>31, Cours Marechal-Joffre 95170 </td>
               <td>DEUIL-LA-BARRE</td>
-              <td><button  data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
-                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+              <td><button data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
+                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
             </tr>
+
+
+
             <tr>
               <td>Dominic Thibault</td>
               <td>DominicThibault@dayrep.com</td>
-              
+
               <td>55, place Stanislas
 44000 </td>
               <td>NANTES</td>
-              <td><button  data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
-                        <button  data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                        <button  type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
+              <td><button data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
+                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
             </tr>
-            
-            </tbody>
-            <tfoot>
+
+          </tbody>
+          <tfoot>
             <tr>
               <th>Nom</th>
               <th>Email</th>
@@ -68,61 +147,61 @@ const Passanger = () => {
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Nouveau</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <AddPassanger />
+                <AddPassanger passanger={updatedItem} />
               </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                  
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
+
               </div>
             </div>
           </div>
         </div>
 
         <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            <EditPassanger/>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                
-            </div>
-          </div>
-        </div>
-      </div>
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <EditPassanger passanger={updatedItem} />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
 
-      <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-           <ViewPassanger/>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                
+              </div>
             </div>
           </div>
         </div>
-      </div>
+
+        <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Voir</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
 
 
       </div>
