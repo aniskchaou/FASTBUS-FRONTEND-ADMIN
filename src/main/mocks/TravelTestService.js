@@ -1,4 +1,4 @@
-const _travel = []
+const _travel = [{ "trip_title": "COLOMIERS - PUTEAUX", "route": "32E32", "weekend": "07/11/2020", "schedule": "12h00" }]
 
 const getAll = () => {
     return _travel;

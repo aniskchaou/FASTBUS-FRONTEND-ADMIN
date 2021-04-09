@@ -57,7 +57,7 @@ const AddSchedule = () => {
             Début *</font></font></label>
           <div class="col-sm-8">
             <input onChange={handleInputChange} value={schedule.start} ref={register({ required: true })}
-              type="text" name="start" id="start" placeholder="Heure de début" class="form-control timepicker hasDatepicker" />
+              type="time" name="start" id="start" placeholder="Heure de début" class="form-control timepicker hasDatepicker" />
             <div className="error text-danger">
               {errors.start && scheduleValidation.start}
             </div>
@@ -70,7 +70,7 @@ const AddSchedule = () => {
             Fin *</font></font></label>
           <div class="col-sm-8">
             <input onChange={handleInputChange} value={schedule.end} ref={register({ required: true })}
-              type="text" name="end" id="end" placeholder="Heure de fin" class="form-control timepicker hasDatepicker" />
+              type="time" name="end" id="end" placeholder="Heure de fin" class="form-control timepicker hasDatepicker" />
             <div className="error text-danger">
               {errors.end && scheduleValidation.end}
             </div>
@@ -83,7 +83,7 @@ const AddSchedule = () => {
             Durée *</font></font></label>
           <div class="col-sm-8">
             <input onChange={handleInputChange} value={schedule.duration} ref={register({ required: true })}
-              type="text" name="duration" id="duration" placeholder="Durée" class="form-control" />
+              type="number" name="duration" id="duration" placeholder="Durée" class="form-control" />
             <div className="error text-danger">
               {errors.duration && scheduleValidation.duration}
             </div>

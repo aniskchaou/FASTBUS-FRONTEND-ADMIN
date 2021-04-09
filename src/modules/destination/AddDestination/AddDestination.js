@@ -90,9 +90,9 @@ const AddDestination = () => {
           <label for="status" class="col-sm-3 col-form-label">Statut *</label>
           <div class="col-sm-9">
             <label class="radio-inline">
-              <input type="radio" name="status" value="1" id="status" />Active</label>
+              <input type="radio" onChange={handleInputChange} ref={register({ required: true })} name="status" value="Active" id="status" />Active</label>
             <label class="radio-inline">
-              <input type="radio" name="status" value="0" id="status" />Inactive</label>
+              <input type="radio" onChange={handleInputChange} ref={register({ required: true })} name="status" value="Inactive" id="status" />Inactive</label>
 
           </div>
         </div>

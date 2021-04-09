@@ -60,7 +60,6 @@ const AddBooking = () => {
             <div className="error text-danger">
               {errors.name && bookingValidation.name}
             </div>
-
           </div>
         </div>
 
@@ -255,8 +254,8 @@ const AddBooking = () => {
             <select onChange={handleInputChange} value={booking.status} ref={register({ required: true })}
               class="form-control select2-hidden-accessible" name="status" id="status" required=""
               tabindex="-1" aria-hidden="true">
-              <option value="NULL">  Payé  </option>
-              <option value="1">  Non payé  </option>
+              <option value="Payé">  Payé  </option>
+              <option value="Non payé">  Non payé  </option>
             </select>
             <div className="error text-danger">
               {errors.status && bookingValidation.status}

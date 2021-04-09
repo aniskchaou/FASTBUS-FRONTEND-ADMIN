@@ -88,7 +88,6 @@ const Routes = () => {
               <th>Distance</th>
               <th>Temps Approximatif</th>
               <th>Siege enfant </th>
-              <th>Siege principale</th>
               <th>Statut</th>
               <th>Actions</th>
             </tr>
@@ -98,14 +97,13 @@ const Routes = () => {
             {routes.map(item =>
               <tr>
                 <td>{item.name}</td>
-                <td className="badge badge-primary">{item.start_point}</td>
+                <td><span className="badge badge-primary">{item.start_point}</span></td>
                 <td>{item.end_point}</td>
-                <td className="badge badge-secondary">{item.stoppage_points}</td>
+                <td><span className="badge badge-secondary">{item.stoppage_points}</span></td>
                 <td>{item.distance} km </td>
                 <td>{item.approximate_time} h</td>
                 <td>{item.special_seat}</td>
-                <td>1A</td>
-                <td className="badge badge-success">{item.status}</td>
+                <td><span className="badge badge-success" >{item.status}</span></td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                   <button onClick={e => remove(e, routes.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
@@ -117,20 +115,6 @@ const Routes = () => {
 
 
 
-            <tr>
-              <td>8Y8Y779T</td>
-              <td className="badge badge-primary">POISSY</td>
-              <td>SAINT-PAUL</td>
-              <td className="badge badge-secondary">NICE</td>
-              <td>226 km </td>
-              <td>2h</td>
-              <td>3</td>
-              <td>1A</td>
-              <td className="badge badge-success">Active</td>
-              <td>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
 
 
 
@@ -144,7 +128,6 @@ const Routes = () => {
               <th>Distance</th>
               <th>Temps Approximatif</th>
               <th>Siege enfant </th>
-              <th>Siege principale</th>
               <th>Statut</th>
               <th>Actions</th>
             </tr>

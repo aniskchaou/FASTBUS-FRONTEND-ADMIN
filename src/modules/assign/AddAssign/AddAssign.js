@@ -59,9 +59,8 @@ const AddAssign = () => {
               name="trip" class="form-control select2-hidden-accessible" tabindex="-1"
               aria-hidden="true">
               <option selected="selected">  Sélectionnez une option   </option>
-              <option value="1">  VIP-Paris - Nice-04: 30: 30 - 07:40:15   </option>
-              <option value="2">  Prestige-Nice - Paris -08: 30: 00 - 13:30:00   </option>
-
+              <option value="453Z3">  VIP-Paris - Nice-04: 30: 30 - 07:40:15   </option>
+              <option value="56544">  Prestige-Nice - Paris -08: 30: 00 - 13:30:00   </option>
             </select>
             <div className="error text-danger">
               {errors.trip && assignValidation.trip}
@@ -77,9 +76,9 @@ const AddAssign = () => {
               name="fleet_registration_id" class="form-control select2-hidden-accessible"
               tabindex="-1" aria-hidden="true">
               <option selected="selected">  Sélectionnez une option   </option>
-              <option value="1">  LT019EM   </option>
-              <option value="2">  LT9873HG   </option>
-              <option value="3">  LTm35656T   </option>
+              <option value="LT019EM">  LT019EM   </option>
+              <option value="LT9873HG">  LT9873HG   </option>
+              <option value="LTm35656T">  LTm35656T   </option>
             </select>
             <div className="error text-danger">
               {errors.fleet_registration_id && assignValidation.fleet_registration_id}
@@ -107,9 +106,9 @@ const AddAssign = () => {
               name="driver_id" class="form-control select2-hidden-accessible" tabindex="-1"
               aria-hidden="true">
               <option selected="selected">  Sélectionnez une option   </option>
-              <option value="6">  Nathan Plus   </option>
-              <option value="3">  Robben Hoden   </option>
-              <option value="7">  John Briden   </option>
+              <option value="Nathan Plus">  Nathan Plus   </option>
+              <option value="Robben Hoden">  Robben Hoden   </option>
+              <option value="John Briden">  John Briden   </option>
             </select>
             <div className="error text-danger">
               {errors.driver_id && assignValidation.driver_id}
@@ -129,9 +128,9 @@ const AddAssign = () => {
                   name="assistant_1" class="form-control select2-hidden-accessible"
                   tabindex="-1" aria-hidden="true">
                   <option selected="selected">  Sélectionnez une option   </option>
-                  <option value="2">  Yung Ovien   </option>
-                  <option value="4">  Acena Lotie   </option>
-                  <option value="5">  Tab Basite   </option>
+                  <option value="Yung Ovien">  Yung Ovien   </option>
+                  <option value="Acena Lotie">  Acena Lotie   </option>
+                  <option value="Tab Basite ">  Tab Basite   </option>
                 </select>
                 <div className="error text-danger">
                   {errors.assistant_1 && assignValidation.assistant_1}
@@ -144,9 +143,9 @@ const AddAssign = () => {
                   name="assistant_2" class="form-control select2-hidden-accessible"
                   tabindex="-1" aria-hidden="true">
                   <option selected="selected">  Sélectionnez une option   </option>
-                  <option value="2">  Yung Ovien   </option>
-                  <option value="4">  Acena Lotie   </option>
-                  <option value="5">  Tab Basite   </option>
+                  <option value="Yung Ovien">  Yung Ovien   </option>
+                  <option value="Acena Lotie">  Acena Lotie   </option>
+                  <option value="Tab Basite ">  Tab Basite   </option>
                 </select>
                 <div className="error text-danger">
                   {errors.assistant_2 && assignValidation.assistant_2}
@@ -157,9 +156,9 @@ const AddAssign = () => {
                 <select onChange={handleInputChange} value={assign.assistant_3} ref={register({ required: true })}
                   name="assistant_3" class="form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true">
                   <option selected="selected">  Sélectionnez une option   </option>
-                  <option value="2">  Yung Ovien   </option>
-                  <option value="4">  Acena Lotie   </option>
-                  <option value="5">  Tab Basite   </option>
+                  <option value="Yung Ovien">  Yung Ovien   </option>
+                  <option value="Acena Lotie">  Acena Lotie   </option>
+                  <option value="Tab Basite ">  Tab Basite   </option>
                 </select>
                 <div className="error text-danger">
                   {errors.assistant_3 && assignValidation.assistant_3}
@@ -175,11 +174,11 @@ const AddAssign = () => {
           <label for="status" class="col-sm-3 col-form-label">  Statut *   </label>
           <div class="col-sm-9">
             <label class="radio-inline">
-              <input type="radio" name="status" value="1" id="status" />
-               Actif</label>
+              <input onChange={handleInputChange} ref={register({ required: true })} type="radio" name="status" value="Active" id="status" />
+               Active</label>
             <label class="radio-inline">
-              <input type="radio" name="status" value="0" id="status" />
-               Inactif</label>
+              <input onChange={handleInputChange} ref={register({ required: true })} type="radio" name="status" value="Inactive" id="status" />
+               Inactive</label>
             <div className="error text-danger">
               {errors.status && assignValidation.status}
             </div>

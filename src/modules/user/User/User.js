@@ -25,7 +25,6 @@ const User = () => {
             <tr>
               <th>Nom</th>
               <th>Email</th>
-              <th>Téléphone</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -35,7 +34,6 @@ const User = () => {
               <tr>
                 <td>{item.first_name}</td>
                 <td>{item.email}</td>
-                <td>355355353</td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#editUser" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                   <button onClick={e => remove(e, users.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
@@ -43,14 +41,7 @@ const User = () => {
               </tr>
             )}
 
-            <tr>
-              <td>Tiger Nixon</td>
-              <td>tiger@gmail.com</td>
-              <td>355355353</td>
-              <td><button data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
+
 
           </tbody>
         </table>

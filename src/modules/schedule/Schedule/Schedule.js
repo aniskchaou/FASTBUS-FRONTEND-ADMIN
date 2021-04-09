@@ -106,25 +106,7 @@ const Schedule = () => {
             )}
 
 
-            <tr>
-              <td>14h00</td>
-              <td>16h00</td>
-              <th>2 heures</th>
-              <td>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
 
-
-
-            <tr>
-              <td>10h00</td>
-              <td>13h00</td>
-              <th>3 heures</th>
-              <td>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
 
           </tbody><tfoot>
             <tr>

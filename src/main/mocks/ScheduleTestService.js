@@ -1,4 +1,4 @@
-const _schedule = []
+const _schedule = [{ "start": "14h00", "end": "16h00", "duration": "2 heures" }]
 
 const getAll = () => {
     return _schedule;

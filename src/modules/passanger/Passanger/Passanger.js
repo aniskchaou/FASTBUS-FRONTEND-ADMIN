@@ -86,7 +86,6 @@ const Passanger = () => {
               <th>Nom</th>
               <th>Email</th>
               <th>Adresse</th>
-              <th>Ville</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -94,10 +93,9 @@ const Passanger = () => {
 
             {passangers.map(item =>
               <tr>
-                <td>{item.first_name}</td>
+                <td>{item.firstname}</td>
                 <td>{item.email}</td>
-                <td>{item.address}</td>
-                <td>DEUIL-LA-BARRE</td>
+                <td>{item.address_line_1}</td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                   <button onClick={e => remove(e, passangers.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
@@ -107,29 +105,7 @@ const Passanger = () => {
 
 
 
-            <tr>
-              <td>Yves Courtois</td>
-              <td>YvesCourtois@rhyta.com</td>
-              <td>31, Cours Marechal-Joffre 95170 </td>
-              <td>DEUIL-LA-BARRE</td>
-              <td><button data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
 
-
-
-            <tr>
-              <td>Dominic Thibault</td>
-              <td>DominicThibault@dayrep.com</td>
-
-              <td>55, place Stanislas
-44000 </td>
-              <td>NANTES</td>
-              <td><button data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
 
           </tbody>
           <tfoot>
@@ -137,7 +113,6 @@ const Passanger = () => {
               <th>Nom</th>
               <th>Email</th>
               <th>Adresse</th>
-              <th>Ville</th>
               <th>Actions</th>
             </tr>
           </tfoot>

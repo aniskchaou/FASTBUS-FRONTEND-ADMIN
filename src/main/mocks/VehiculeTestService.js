@@ -1,4 +1,4 @@
-const _vehicule = []
+const _vehicule = [{ "reg_no": "SEZ2E", "fleet_type_id": "bus", "model_no": "Toyota Hiace", "chasis_no": "aZS1Z-66", "": "", "": "", }]
 
 const getAll = () => {
     return _vehicule;

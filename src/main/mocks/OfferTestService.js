@@ -1,4 +1,7 @@
-const _offer = []
+const _offer = [{
+    "offer_name": "3EE32E2", "offer_start_date": "22/10/2020", "offer_end_date": "22/10/2020",
+    "offer_code": "13E2", "offer_discount": "20%", "offer_name": "REZÉ"
+}]
 
 const getAll = () => {
     return _offer;

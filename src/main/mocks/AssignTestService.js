@@ -1,4 +1,11 @@
-const _assign = []
+const _assign = [{
+    "trip": "3EE3",
+    "fleet_registration_id": "223S2",
+    "assign_date": "12/5/2020",
+    "driver_id": "RILLIEUX-LA-PAPE",
+    "status": "Active"
+}]
+
 
 const getAll = () => {
     return _assign;

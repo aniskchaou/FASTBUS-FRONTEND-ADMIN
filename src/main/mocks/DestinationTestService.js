@@ -1,4 +1,5 @@
-const _destination = []
+const _destination = [{ "name": "Paris", "description": "Paris", "status": "Active" }]
+
 
 const getAll = () => {
     return _destination;

@@ -1,4 +1,4 @@
-const _price = []
+const _price = [{ "route_id": "532F23", "vehicle_type_id": "bus", "price": "452 $", "childere_price": "5 $", "special_price": "8 $" }]
 
 const getAll = () => {
     return _price;

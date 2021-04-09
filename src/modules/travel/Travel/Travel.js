@@ -87,8 +87,6 @@ const Travel = () => {
               <th>Nom de route</th>
               <th>Date</th>
               <th>Horaire</th>
-              <th>distance</th>
-              <th>durée</th>
               <th>Statut</th>
               <th>Actions</th>
             </tr>
@@ -99,13 +97,11 @@ const Travel = () => {
 
             {travels.map(item =>
               <tr>
-                <td className="badge badge-primary">{item.trip_title}</td>
+                <td><span className="badge badge-primary">{item.trip_title}</span></td>
                 <td>{item.route}</td>
                 <td>{item.weekend}</td>
                 <td>{item.schedule}</td>
-                <td>223</td>
-                <td>43</td>
-                <td className="badge badge-success">{item.status}</td>
+                <td> <span className="badge badge-success">{item.status}</span></td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#editTravel" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                   <button onClick={e => remove(e, travels.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
@@ -114,35 +110,6 @@ const Travel = () => {
             )}
 
 
-            <tr>
-              <td className="badge badge-primary">COLOMIERS-PUTEAUX</td>
-              <td>32E32</td>
-              <td>07/11/2020</td>
-              <td>12h00</td>
-              <td>223</td>
-              <td>43</td>
-              <td className="badge badge-success">Active</td>
-              <td>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
-
-
-
-            <tr>
-              <td className="badge badge-primary">LES ABYMES-SAINT-PAUL</td>
-              <td>98U8J880</td>
-              <td>2/8/2020</td>
-              <td>11h00</td>
-
-              <td>223</td>
-              <td>43</td>
-              <td className="badge badge-success">Active</td>
-              <td>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
-
           </tbody>
           <tfoot>
             <tr>
@@ -150,8 +117,6 @@ const Travel = () => {
               <th>Nom de route</th>
               <th>Date</th>
               <th>Horaire</th>
-              <th>distance</th>
-              <th>durée</th>
               <th>Statut</th>
               <th>Actions</th>
             </tr>

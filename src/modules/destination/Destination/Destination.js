@@ -90,26 +90,17 @@ const Destination = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>BIARRITZ</td>
-              <td>BIARRITZ</td>
-              <td className="badge badge-success">Active</td>
-              <td>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
-
-            <tr>
-              <td>REZÉ</td>
-              <td>REZÉ</td>
-              <td className="badge badge-success">Active</td>
-              <td>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
-
-
-
+            {destinations.map(item =>
+              <tr>
+                <td>{item.name}</td>
+                <td>{item.description}</td>
+                <td ><span className="badge badge-success">{item.status}</span></td>
+                <td>
+                  <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+                  <button onClick={e => remove(e, destinations.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                </td>
+              </tr>
+            )}
           </tbody>
           <tfoot>
             <tr>
@@ -120,7 +111,8 @@ const Destination = () => {
             </tr>
           </tfoot>
         </table>
-        <button data-toggle="modal" data-target="#addDestination" type="button" className="btn btn-success btn-sm">Ajouter</button>
+        <button data-toggle="modal" data-target="#addDestination" type="button" className="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i></button>
+
         <div class="modal fade" id="addDestination" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">

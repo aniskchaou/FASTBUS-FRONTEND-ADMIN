@@ -97,10 +97,10 @@ const Price = () => {
             {prices.map(item =>
               <tr>
                 <td>{item.route_id}</td>
-                <td>{item.vehicule_type_id}</td>
-                <td className="badge badge-primary">{item.price}$</td>
-                <td>{item.childere_price} $</td>
-                <td>{item.special_price} $</td>
+                <td>{item.vehicle_type_id}</td>
+                <td ><span className="badge badge-primary">{item.price}</span></td>
+                <td>{item.childere_price} </td>
+                <td>{item.special_price} </td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                   <button onClick={e => remove(e, prices.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
@@ -108,30 +108,6 @@ const Price = () => {
               </tr>
             )}
 
-
-            <tr>
-              <td>3EE33TG</td>
-              <td>bus</td>
-              <td className="badge badge-primary">213$</td>
-              <td>21$</td>
-              <td>23$</td>
-              <td>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
-
-
-
-            <tr>
-              <td>K99J9UJ9</td>
-              <td>bus</td>
-              <td className="badge badge-primary">343$</td>
-              <td>65$</td>
-              <td>78$</td>
-              <td>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
 
           </tbody>
           <tfoot>
@@ -145,7 +121,7 @@ const Price = () => {
             </tr>
           </tfoot>
         </table>
-        <button data-toggle="modal" data-target="#addPrice" type="button" className="btn btn-success btn-sm">Ajouter</button>
+        <button data-toggle="modal" data-target="#addPrice" type="button" className="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i></button>
         <div class="modal fade" id="addPrice" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">

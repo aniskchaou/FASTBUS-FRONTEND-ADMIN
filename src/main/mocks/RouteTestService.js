@@ -1,4 +1,9 @@
-const _route = []
+const _route = [{
+    "name": "8Y8Y779T", "start_point": "Paris", "end_point": "SAINT-PAUL",
+    "stoppage_points": "Nice", "distance": "12 Km", "approximate_time": "12h",
+    "special_seat": "1A", "status": "Active"
+}]
+
 
 const getAll = () => {
     return _route;

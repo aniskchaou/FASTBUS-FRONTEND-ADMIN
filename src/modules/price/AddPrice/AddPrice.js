@@ -59,8 +59,8 @@ const AddPrice = () => {
             <select onChange={handleInputChange} value={price.route_id} ref={register({ required: true })}
               name="route_id" class="form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true">
               <option selected="selected"> Sélectionnez une option </option>
-              <option value="9"> Paris - Nice </option>
-              <option value="10"> Nice - Paris </option>
+              <option value="Paris - Nice"> Paris - Nice </option>
+              <option value="Nice - Paris"> Nice - Paris </option>
             </select>
             <div className="error text-danger">
               {errors.route_id && priceValidation.route_id}
@@ -76,10 +76,10 @@ const AddPrice = () => {
             <select onChange={handleInputChange} value={price.vehicle_type_id} ref={register({ required: true })}
               name="vehicle_type_id" class="form-control select2-hidden-accessible" tabindex="-1" aria-hidden="true">
               <option selected="selected"> Sélectionnez une option </option>
-              <option value="1"> VIP </option>
-              <option value="2"> Prestige </option>
-              <option value="3"> Classique </option>
-              <option value="4"> Entraîneur </option>
+              <option value="VIP"> VIP </option>
+              <option value="Prestige"> Prestige </option>
+              <option value="Classique"> Classique </option>
+              <option value="Entraîneur"> Entraîneur </option>
             </select>
             <div className="error text-danger">
               {errors.vehicle_type_id && priceValidation.vehicle_type_id}

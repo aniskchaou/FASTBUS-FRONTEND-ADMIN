@@ -1,4 +1,8 @@
-const _passanger = []
+const _passanger = [{
+    "id": 1, "firstname": "Yves Courtois",
+    "email": "YvesCourtois@rhyta.com", "address_line_1": "31, Cours Marechal-Joffre 95170"
+}]
+
 
 const getAll = () => {
     return _passanger;

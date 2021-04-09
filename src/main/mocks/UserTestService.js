@@ -1,4 +1,4 @@
-const _user = []
+const _user = [{ "first_name": "admin", "email": "admin@admin.com" }]
 
 const getAll = () => {
     return _user;

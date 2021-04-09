@@ -99,7 +99,7 @@ const Offer = () => {
                 <td>{item.offer_start_date}</td>
                 <td>{item.offer_end_date}</td>
                 <td>{item.offer_code}</td>
-                <td className="badge badge-primary">{item.offer_discount} %</td>
+                <td> <span className="badge badge-primary"> {item.offer_discount}</span> </td>
                 <td>{item.offer_name}</td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
@@ -107,33 +107,6 @@ const Offer = () => {
                 </td>
               </tr>
             )}
-
-
-            <tr>
-              <td>3EE32E2</td>
-              <td>22/10/2020</td>
-              <td>22/10/2020</td>
-              <td>13E2</td>
-              <td className="badge badge-primary">20%</td>
-              <td>REZÉ</td>
-              <td><button data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
-
-
-
-            <tr>
-              <td>232D32</td>
-              <td>1/4/2020</td>
-              <td>1/4/2020</td>
-              <td>23ED2</td>
-              <td className="badge badge-primary">11%</td>
-              <td>MARCQ-EN-BAROEUL</td>
-              <td><button data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
-                <button data-toggle="modal" data-target="#edit" type="button" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger btn-sm" onClick="return confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?');"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
 
 
 
