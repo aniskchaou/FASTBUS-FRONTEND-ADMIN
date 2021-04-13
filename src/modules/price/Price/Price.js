@@ -4,10 +4,12 @@ import './Price.css';
 import useForceUpdate from 'use-force-update';
 import { LoadJS } from '../../../libraries/datatables/datatables';
 import AddPrice from './../AddPrice/AddPrice';
+import EditPrice from './../EditPrice/EditPrice'
 import PriceTestService from '../../../main/mocks/PriceTestService';
 import HTTPService from '../../../main/services/HTTPService';
 import showMessage from '../../../libraries/messages/messages';
 import priceMessage from '../../../main/messages/priceMessage';
+
 
 const Price = () => {
 
@@ -152,7 +154,7 @@ const Price = () => {
                 </button>
               </div>
               <div class="modal-body">
-
+                <EditPrice price={updatedItem} />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>

@@ -75,7 +75,7 @@ const Header = (props) => {
 
                             <div className="user-menu dropdown-menu">
 
-                                <Link to="/configuration" className="nav-link" href="#"><i className="fa fa-cog"></i>Mon profile</Link>
+                                <Link to="/my-profile" className="nav-link" href="#"><i className="fa fa-user"></i>Mon profile</Link>
                                 <Link to="/configuration" className="nav-link" href="#"><i className="fa fa-cog"></i>Paramètres</Link>
                                 <Link to="/" onClick={logout} className="nav-link" href="#"><i className="fa fa-power-off"></i>Déconnexion</Link>
                             </div>

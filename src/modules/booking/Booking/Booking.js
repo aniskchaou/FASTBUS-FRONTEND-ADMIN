@@ -8,6 +8,7 @@ import showMessage from '../../../libraries/messages/messages';
 import bookingMessage from '../../../main/messages/bookingMessage';
 import BookingTestService from '../../../main/mocks/BookingTestService';
 import HTTPService from '../../../main/services/HTTPService';
+import ViewBooking from '../ViewBooking/ViewBooking';
 
 const Booking = () => {
   const [bookings, setBookings] = useState([]);
@@ -71,6 +72,12 @@ const Booking = () => {
     resfresh()
   }
 
+  const view = (e, data) => {
+    e.preventDefault();
+    setUpdatedItem(data)
+    resfresh()
+  }
+
 
   return (
     <div className="card">
@@ -100,7 +107,7 @@ const Booking = () => {
                 <td ><span className="badge badge-primary">{item.price}$</span></td>
                 <td ><span className="badge badge-success"></span>{item.status}</td>
                 <td>
-                  <button data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
+                  <button onClick={e => view(e, item)} data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                   <button onClick={e => remove(e, bookings.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </td>
@@ -172,7 +179,7 @@ const Booking = () => {
                 </button>
               </div>
               <div class="modal-body">
-
+                <ViewBooking booking={updatedItem} />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>

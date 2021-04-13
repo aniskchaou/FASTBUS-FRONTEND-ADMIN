@@ -20,6 +20,7 @@ import AddOffer from '../../../modules/offer/AddOffer/AddOffer';
 import AddDestination from '../../../modules/destination/AddDestination/AddDestination';
 import AddAssign from '../../../modules/assign/AddAssign/AddAssign';
 import User from '../../config/user';
+import Profile from '../../../modules/shared/Profile/Profile';
 const Content = () => (
   <div className="col-md-12" style={{ display: (User.CONNECTED_USER ? 'block' : 'none') }}>
 
@@ -41,6 +42,7 @@ const Content = () => (
     <Route exact path="/add-offer" component={AddOffer} />
     <Route exact path="/add-destination" component={AddDestination} />
     <Route exact path="/add-assign" component={AddAssign} />
+    <Route exact path="/my-profile" component={Profile} />
 
 
 

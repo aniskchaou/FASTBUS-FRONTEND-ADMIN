@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
 import { useHistory } from 'react-router';
 import User from '../../config/user';
 import { useForm } from 'react-hook-form';
+import { LoadJS } from '../../../libraries/datatables/datatables';
+import showMessage from '../../../libraries/messages/messages';
 
 const Login = (props) => {
   let history = useHistory()
   const { register, handleSubmit, errors } = useForm()
 
+  useEffect(() => {
+    LoadJS()
+  }, []);
 
   const onSubmit = (data) => {
     props.rerender();
     User.CONNECTED_USER = true
+    showMessage('Succés', "Bienvenue  admin !", 'success')
     history.push("/dashboard")
   }
 
