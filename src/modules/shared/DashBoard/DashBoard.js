@@ -27,9 +27,9 @@ const DashBoard = () => {
               <div class="stat-content">
                 <div class="text-left dib">
                   <div class="stat-text">
-                    $<span class="count">2</span>
+                    <span class="count">2</span>
                   </div>
-                  <div class="stat-heading">Résérvations</div>
+                  <div class="stat-heading">Bookings</div>
                 </div>
               </div>
             </div>
@@ -47,9 +47,9 @@ const DashBoard = () => {
               <div class="stat-content">
                 <div class="text-left dib">
                   <div class="stat-text">
-                    <span class="count">3435</span>
+                    <span class="count">34</span>
                   </div>
-                  <div class="stat-heading">Destination</div>
+                  <div class="stat-heading">Destinations</div>
                 </div>
               </div>
             </div>
@@ -67,7 +67,7 @@ const DashBoard = () => {
               <div class="stat-content">
                 <div class="text-left dib">
                   <div class="stat-text">
-                    <span class="count">122</span>
+                    <span class="count">12</span>
                   </div>
                   <div class="stat-heading">Routes</div>
                 </div>
@@ -87,9 +87,9 @@ const DashBoard = () => {
               <div class="stat-content">
                 <div class="text-left dib">
                   <div class="stat-text">
-                    <span class="count">1223</span>
+                    <span class="count">13</span>
                   </div>
-                  <div class="stat-heading">Voyage</div>
+                  <div class="stat-heading">Travels</div>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@ const DashBoard = () => {
         </div>
       </div>
 
-      <div className="col-md-6">
+      {/*       <div className="col-md-6">
         <div className="card">
           <div className="card-body">
 
@@ -115,11 +115,11 @@ const DashBoard = () => {
             <canvas id="team-chart" height="225" width="450" className="passanger-chart chartjs-render-monitor"></canvas>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="col-md-12">
-       <Travel/>
-        </div>
+        <Travel />
+      </div>
     </div>
 
   )

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Booking.css';
 import { LoadJS } from '../../../libraries/datatables/datatables';
 import EditBooking from '../EditBooking/EditBooking';
@@ -9,21 +9,34 @@ import bookingMessage from '../../../main/messages/bookingMessage';
 import BookingTestService from '../../../main/mocks/BookingTestService';
 import HTTPService from '../../../main/services/HTTPService';
 import ViewBooking from '../ViewBooking/ViewBooking';
-
+import bookingHTTPService from '../../../main/services/bookingHTTPService';
 const Booking = () => {
   const [bookings, setBookings] = useState([]);
   const [updatedItem, setUpdatedItem] = useState({});
   const forceUpdate = useForceUpdate();
+  const closeButtonEdit = useRef(null);
+  const closeButtonAdd = useRef(null);
+  const closeModalEdit = (data) => {
+    getAll()
+    closeButtonEdit.current.click()
+  }
+
+  const closeModalAdd = (data) => {
+    getAll()
+    closeButtonAdd.current.click()
+  }
+
 
 
   useEffect(() => {
     LoadJS()
-    retrieveBookings()
+    // retrieveBookings()
+    getAll()
   }, []);
 
 
   const getAll = () => {
-    HTTPService.getAll()
+    bookingHTTPService.getAllBooking()
       .then(response => {
         setBookings(response.data);
       })
@@ -50,18 +63,17 @@ const Booking = () => {
   };
 
   const resfresh = () => {
-    retrieveBookings()
-    forceUpdate()
+    //retrieveBookings()
+    //forceUpdate()
   }
 
   const remove = (e, data) => {
     e.preventDefault();
-    var r = window.confirm("Etes-vous sûr que vous voulez supprimer ?");
+    var r = window.confirm("Are you sure ?");
     if (r) {
-      showMessage('Confirmation', bookingMessage.delete, 'success')
-      BookingTestService.remove(data)
-      //removeOne(data)
-      resfresh()
+      bookingHTTPService.removeBooking(data.id).then(() => {
+        getAll()
+      })
     }
 
   }
@@ -82,18 +94,19 @@ const Booking = () => {
   return (
     <div className="card">
       <div className="card-header">
-        <strong className="card-title">Réservations</strong>
+        <strong className="card-title"><i class="menu-icon fa fa-location-arrow"></i> Bookings</strong>
       </div>
       <div className="card-body">
+        <button type="button" data-toggle="modal" data-target="#addBooking" className="btn btn-success btn-sm"><i class="fa fa-plus" aria-hidden="true"></i> Create</button>
 
         <table id="example1" className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Date reservation</th>
-              <th>Nom de passager</th>
-              <th>Nom route</th>
-              <th>Prix</th>
-              <th>Statut</th>
+              <th>Date Booking</th>
+              <th>Passenger</th>
+              <th>Trip</th>
+              <th>Payment</th>
+              <th>Adult</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -101,48 +114,47 @@ const Booking = () => {
 
             {bookings.map(item =>
               <tr>
-                <td>{item.approximate_time}</td>
-                <td>{item.name}</td>
-                <td>{item.route_id}</td>
-                <td ><span className="badge badge-primary">{item.price}$</span></td>
-                <td ><span className="badge badge-success"></span>{item.status}</td>
+                <td>{item.date}</td>
+                <td>{item.passenger}</td>
+                <td>{item.trip}</td>
+                <td ><span className="badge badge-primary">{item.payment}</span></td>
+                <td ><span className="badge badge-success"></span>{item.adults}</td>
                 <td>
-                  <button onClick={e => view(e, item)} data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button>
+                  {/*   <button onClick={e => view(e, item)} data-toggle="modal" data-target="#view" type="button" class="btn btn-primary btn-sm"><i class="fas fa-address-book"></i></button> */}
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                  <button onClick={e => remove(e, bookings.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                  <button onClick={e => remove(e, item)} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </td>
               </tr>
             )}
           </tbody>
           <tfoot>
             <tr>
-              <th>Date reservation</th>
-              <th>Nom de passager</th>
-              <th>Nom route</th>
-              <th>Prix</th>
-              <th>Statut</th>
+              <th>Date Booking</th>
+              <th>Passenger</th>
+              <th>Route</th>
+              <th>Price</th>
+              <th>Status</th>
               <th>Actions</th>
             </tr>
           </tfoot>
 
         </table>
-        <button type="button" data-toggle="modal" data-target="#addBooking" className="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i></button>
 
 
         <div class="modal fade" id="addBooking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Nouveau</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">New</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <AddBooking />
+                <AddBooking closeModal={closeModalAdd} />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
+                <button ref={closeButtonAdd} type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Close</button>
 
               </div>
             </div>
@@ -159,17 +171,17 @@ const Booking = () => {
                 </button>
               </div>
               <div class="modal-body">
-                <EditBooking booking={updatedItem} />
+                <EditBooking booking={updatedItem} closeModal={closeModalEdit} />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
+                <button ref={closeButtonEdit} type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Close</button>
 
               </div>
             </div>
           </div>
         </div>
 
-        <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        {/*   <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -187,7 +199,7 @@ const Booking = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
       </div>

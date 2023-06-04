@@ -35,7 +35,7 @@ const Header = (props) => {
                                 </form>
                             </div>
 
-                            <div className="dropdown for-notification">
+                            {/*  <div className="dropdown for-notification">
                                 <button className="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i className="fa fa-plus-square"></i>
 
@@ -64,7 +64,7 @@ const Header = (props) => {
                                     </NavLink>
 
                                 </div>
-                            </div>
+                            </div> */}
 
                         </div>
 
@@ -75,9 +75,9 @@ const Header = (props) => {
 
                             <div className="user-menu dropdown-menu">
 
-                                <Link to="/my-profile" className="nav-link" href="#"><i className="fa fa-user"></i>Mon profile</Link>
-                                <Link to="/configuration" className="nav-link" href="#"><i className="fa fa-cog"></i>Paramètres</Link>
-                                <Link to="/" onClick={logout} className="nav-link" href="#"><i className="fa fa-power-off"></i>Déconnexion</Link>
+                                <Link to="/my-profile" className="nav-link" href="#"><i className="fa fa-user"></i>My Profile</Link>
+                                <Link to="/configuration" className="nav-link" href="#"><i className="fa fa-cog"></i>Settings</Link>
+                                <Link to="/" onClick={logout} className="nav-link" href="#"><i className="fa fa-power-off"></i>Log out</Link>
                             </div>
                         </div>
                     </div>

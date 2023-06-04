@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import './Price.css';
 import useForceUpdate from 'use-force-update';
@@ -6,7 +6,7 @@ import { LoadJS } from '../../../libraries/datatables/datatables';
 import AddPrice from './../AddPrice/AddPrice';
 import EditPrice from './../EditPrice/EditPrice'
 import PriceTestService from '../../../main/mocks/PriceTestService';
-import HTTPService from '../../../main/services/HTTPService';
+import priceHTTPService from '../../../main/services/priceHTTPService';
 import showMessage from '../../../libraries/messages/messages';
 import priceMessage from '../../../main/messages/priceMessage';
 
@@ -16,16 +16,29 @@ const Price = () => {
   const [prices, setPrices] = useState([]);
   const [updatedItem, setUpdatedItem] = useState({});
   const forceUpdate = useForceUpdate();
+  const closeButtonEdit = useRef(null);
+  const closeButtonAdd = useRef(null);
+  const closeModalEdit = (data) => {
+    getAll()
+    closeButtonEdit.current.click()
+  }
+
+  const closeModalAdd = (data) => {
+    getAll()
+    closeButtonAdd.current.click()
+  }
+
 
 
   useEffect(() => {
     LoadJS()
-    retrievePrices()
+    // retrievePrices()
+    getAll()
   }, []);
 
 
   const getAll = () => {
-    HTTPService.getAll()
+    priceHTTPService.getAllPrice()
       .then(response => {
         setPrices(response.data);
       })
@@ -35,13 +48,13 @@ const Price = () => {
   };
 
   const removeOne = (data) => {
-    HTTPService.remove(data)
-      .then(response => {
-
-      })
-      .catch(e => {
-
-      });
+    /*  HTTPService.remove(data)
+       .then(response => {
+ 
+       })
+       .catch(e => {
+ 
+       }); */
   }
 
 
@@ -52,18 +65,21 @@ const Price = () => {
   };
 
   const resfresh = () => {
-    retrievePrices()
-    forceUpdate()
+    //retrievePrices()
+    //forceUpdate()
   }
 
   const remove = (e, data) => {
     e.preventDefault();
-    var r = window.confirm("Etes-vous sûr que vous voulez supprimer ?");
+    var r = window.confirm("Are you sure ?");
     if (r) {
-      showMessage('Confirmation', priceMessage.delete, 'success')
+      /* showMessage('Confirmation', priceMessage.delete, 'success')
       PriceTestService.remove(data)
       //removeOne(data)
-      resfresh()
+      resfresh() */
+      priceHTTPService.removePrice(data.id).then(() => {
+        getAll()
+      })
     }
 
   }
@@ -79,18 +95,18 @@ const Price = () => {
   return (
     <div className="card">
       <div className="card-header">
-        <strong className="card-title">Prix</strong>
+        <strong className="card-title"><i class="menu-icon fa fa-dollar-sign"></i> Prices</strong>
       </div>
       <div className="card-body">
-
+        <button data-toggle="modal" data-target="#addPrice" type="button" className="btn btn-success btn-sm"><i class="fa fa-plus" aria-hidden="true"></i> Create</button>
         <table id="example1" className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Nom route</th>
-              <th>Type de vehicule</th>
-              <th>Prix</th>
-              <th>Prix enfant</th>
-              <th>Prix Special</th>
+              <th>Route</th>
+
+              <th>Price</th>
+              <th>Kids Price</th>
+              <th>Special Price</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -98,14 +114,14 @@ const Price = () => {
 
             {prices.map(item =>
               <tr>
-                <td>{item.route_id}</td>
-                <td>{item.vehicle_type_id}</td>
+                <td>{item.route}</td>
+
                 <td ><span className="badge badge-primary">{item.price}</span></td>
-                <td>{item.childere_price} </td>
-                <td>{item.special_price} </td>
+                <td>{item.kidsPrice} </td>
+                <td>{item.specialPrice} </td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                  <button onClick={e => remove(e, prices.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                  <button onClick={e => remove(e, item)} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </td>
               </tr>
             )}
@@ -114,30 +130,30 @@ const Price = () => {
           </tbody>
           <tfoot>
             <tr>
-              <th>Nom route</th>
-              <th>Type de vehicule</th>
-              <th>Prix</th>
-              <th>Prix enfant</th>
-              <th>Prix Special</th>
+              <th>Route</th>
+
+              <th>Price</th>
+              <th>Kids Price</th>
+              <th>Special Price</th>
               <th>Actions</th>
             </tr>
           </tfoot>
         </table>
-        <button data-toggle="modal" data-target="#addPrice" type="button" className="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i></button>
+
         <div class="modal fade" id="addPrice" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Nouveau</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">New</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <AddPrice />
+                <AddPrice closeModal={closeModalAdd} />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
+                <button ref={closeButtonAdd} type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Close</button>
 
               </div>
             </div>
@@ -154,10 +170,10 @@ const Price = () => {
                 </button>
               </div>
               <div class="modal-body">
-                <EditPrice price={updatedItem} />
+                <EditPrice price={updatedItem} closeModal={closeModalEdit} />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
+                <button ref={closeButtonEdit} type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Close</button>
 
               </div>
             </div>

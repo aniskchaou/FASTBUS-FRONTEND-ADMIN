@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import './Destination.css';
 import { LoadJS } from '../../../libraries/datatables/datatables';
@@ -9,21 +9,35 @@ import showMessage from '../../../libraries/messages/messages';
 import destinationMessage from '../../../main/messages/destinationMessage';
 import DestinationTestService from '../../../main/mocks/DestinationTestService';
 import HTTPService from '../../../main/services/HTTPService';
+import destinationHTTPService from '../../../main/services/destinationHTTPService';
 
 const Destination = () => {
   const [destinations, setDestinations] = useState([]);
   const [updatedItem, setUpdatedItem] = useState({});
   const forceUpdate = useForceUpdate();
+  const closeButtonEdit = useRef(null);
+  const closeButtonAdd = useRef(null);
+  const closeModalEdit = (data) => {
+    getAll()
+    closeButtonEdit.current.click()
+  }
+
+  const closeModalAdd = (data) => {
+    getAll()
+    closeButtonAdd.current.click()
+  }
+
 
 
   useEffect(() => {
     LoadJS()
-    retrieveDestinations()
+    //retrieveDestinations()
+    getAll()
   }, []);
 
 
   const getAll = () => {
-    HTTPService.getAll()
+    destinationHTTPService.getAllDestination()
       .then(response => {
         setDestinations(response.data);
       })
@@ -51,17 +65,20 @@ const Destination = () => {
 
   const resfresh = () => {
     retrieveDestinations()
-    forceUpdate()
+    //forceUpdate()
   }
 
   const remove = (e, data) => {
     e.preventDefault();
-    var r = window.confirm("Etes-vous sûr que vous voulez supprimer ?");
+    var r = window.confirm("Are you sure ?");
     if (r) {
-      showMessage('Confirmation', destinationMessage.delete, 'success')
-      DestinationTestService.remove(data)
+      /*  showMessage('Confirmation', destinationMessage.delete, 'success')
+       DestinationTestService.remove(data) */
       //removeOne(data)
-      resfresh()
+      destinationHTTPService.removeDestination(data.id).then(() => {
+        getAll()
+      })
+
     }
 
   }
@@ -76,57 +93,56 @@ const Destination = () => {
 
     <div className="card">
       <div className="card-header">
-        <strong className="card-title">Destinations</strong>
+        <strong className="card-title"><i class="menu-icon fa fa-map-marked"></i> Destinations</strong>
       </div>
       <div className="card-body">
+        <button data-toggle="modal" data-target="#addDestination" type="button" className="btn btn-success btn-sm"><i class="fa fa-plus" aria-hidden="true"></i> Create</button>
 
         <table id="example1" className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Nom destination</th>
-              <th>description</th>
-              <th>Statut</th>
+              <th> Name</th>
+              <th>Description</th>
+
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {destinations.map(item =>
               <tr>
-                <td>{item.name}</td>
+                <td>{item.city}</td>
                 <td>{item.description}</td>
-                <td ><span className="badge badge-success">{item.status}</span></td>
+
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                  <button onClick={e => remove(e, destinations.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                  <button onClick={e => remove(e, item)} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </td>
               </tr>
             )}
           </tbody>
           <tfoot>
             <tr>
-              <th>Nom destination</th>
-              <th>description</th>
-              <th>Statut</th>
+              <th>Destination Name</th>
+              <th>Description</th>
               <th>Actions</th>
             </tr>
           </tfoot>
         </table>
-        <button data-toggle="modal" data-target="#addDestination" type="button" className="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i></button>
 
         <div class="modal fade" id="addDestination" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Nouveau</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">New</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <AddDestination />
+                <AddDestination closeModal={closeModalAdd} />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
+                <button ref={closeButtonAdd} type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Close</button>
 
               </div>
             </div>
@@ -144,10 +160,10 @@ const Destination = () => {
                 </button>
               </div>
               <div class="modal-body">
-                <EditDestination destination={updatedItem} />
+                <EditDestination destination={updatedItem} closeModal={closeModalEdit} />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
+                <button ref={closeButtonEdit} type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Close</button>
 
               </div>
             </div>

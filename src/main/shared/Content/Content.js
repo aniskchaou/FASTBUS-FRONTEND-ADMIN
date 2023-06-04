@@ -21,6 +21,13 @@ import AddDestination from '../../../modules/destination/AddDestination/AddDesti
 import AddAssign from '../../../modules/assign/AddAssign/AddAssign';
 import User from '../../config/user';
 import Profile from '../../../modules/shared/Profile/Profile';
+
+import Facility from '../../../modules/facility/Facility/Facility'
+import Driver from '../../../modules/driver/Driver/Driver'
+import Station from '../../../modules/station/Station/Station'
+import Seat from '../../../modules/seat/Seat/Seat'
+import TravelType from '../../../modules/travel/TravelType/TravelType'
+import VehiculeType from '../../../modules/vehicule/VehiculeType/VehiculeType'
 const Content = () => (
   <div className="col-md-12" style={{ display: (User.CONNECTED_USER ? 'block' : 'none') }}>
 
@@ -44,6 +51,12 @@ const Content = () => (
     <Route exact path="/add-assign" component={AddAssign} />
     <Route exact path="/my-profile" component={Profile} />
 
+    <Route exact path="/seat" component={Seat} />
+    <Route exact path="/driver" component={Driver} />
+    <Route exact path="/station" component={Station} />
+    <Route exact path="/trip-type" component={TravelType} />
+    <Route exact path="/facility" component={Facility} />
+    <Route exact path="/vehicule-type" component={VehiculeType} />
 
 
 

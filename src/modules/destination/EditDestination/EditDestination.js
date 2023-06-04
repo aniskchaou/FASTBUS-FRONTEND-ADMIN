@@ -6,6 +6,7 @@ import DestinationTestService from '../../../main/mocks/DestinationTestService';
 import showMessage from '../../../libraries/messages/messages';
 import destinationMessage from '../../../main/messages/destinationMessage';
 import destinationValidation from '../../../main/validations/destinationValidation';
+import destinationHTTPService from '../../../main/services/destinationHTTPService';
 
 const EditDestination = (props) => {
   const { register, handleSubmit, errors } = useForm() // initialise the hook
@@ -18,8 +19,11 @@ const EditDestination = (props) => {
 
   const onSubmit = (data) => {
 
-    DestinationTestService.update(props.destination, data)
-    showMessage('Confirmation', destinationMessage.edit, 'success')
+    /*  DestinationTestService.update(props.destination, data)
+     showMessage('Confirmation', destinationMessage.edit, 'success') */
+    destinationHTTPService.editDestination(props.destination.id, data).then(() => {
+      props.closeModal()
+    })
   }
 
 
@@ -34,10 +38,10 @@ const EditDestination = (props) => {
 
 
         <div class="form-group row">
-          <label for="name" class="col-sm-3 col-form-label">Destination  *</label>
+          <label for="name" class="col-sm-3 col-form-label">City  *</label>
           <div class="col-sm-9">
-            <input onChange={handleInputChange} value={destination.name} ref={register({ required: true })}
-              name="name" class="form-control" type="text" placeholder="Destination " id="name" />
+            <input onChange={handleInputChange} value={destination.city} ref={register({ required: true })}
+              name="city" class="form-control" type="text" placeholder="City " id="name" />
             <div className="error text-danger">
               {errors.name && destinationValidation.name}
             </div>
@@ -57,33 +61,9 @@ const EditDestination = (props) => {
         </div>
 
 
-        <div class="form-group row">
-          <label for="image" class="col-sm-3 col-form-label">Image</label>
-          <div class="col-sm-9">
-            <input type="file" name="image" id="image" aria-describedby="fileHelp" />
-            <div className="error text-danger">
-              {errors.image && destinationValidation.image}
-            </div>
 
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label for="status" class="col-sm-3 col-form-label">Statut *</label>
-          <div class="col-sm-9">
-            <label class="radio-inline">
-              <input type="radio" name="status" value="1" id="status" />Active</label>
-            <label class="radio-inline">
-              <input type="radio" name="status" value="0" id="status" />Inactive</label>
-
-          </div>
-        </div>
-
-
-
-        <div class="form-group text-right">
-          <button type="reset" class="btn btn-primary w-md m-b-5">Reinitialiser</button>
-          <button type="submit" class="btn btn-success w-md m-b-5">Savegarder</button>
+        <div class="form-group text-left">
+          <button type="submit" class="btn btn-success w-md m-b-5">Save</button>
         </div>
       </form>
     </div>

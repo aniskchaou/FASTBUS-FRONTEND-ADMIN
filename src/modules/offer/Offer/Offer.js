@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Offer.css';
 import { LoadJS } from '../../../libraries/datatables/datatables';
 import EditOffer from '../EditOffer/EditOffer';
@@ -8,21 +8,34 @@ import showMessage from '../../../libraries/messages/messages';
 import offerMessage from '../../../main/messages/offerMessage';
 import OfferTestService from '../../../main/mocks/OfferTestService';
 import HTTPService from '../../../main/services/HTTPService';
-
+import offerHTTPService from '../../../main/services/offerHTTPService';
 const Offer = () => {
   const [offers, setOffers] = useState([]);
   const [updatedItem, setUpdatedItem] = useState({});
   const forceUpdate = useForceUpdate();
+  const closeButtonEdit = useRef(null);
+  const closeButtonAdd = useRef(null);
+  const closeModalEdit = (data) => {
+    getAll()
+    closeButtonEdit.current.click()
+  }
+
+  const closeModalAdd = (data) => {
+    getAll()
+    closeButtonAdd.current.click()
+  }
+
 
 
   useEffect(() => {
     LoadJS()
-    retrieveOffers()
+    //retrieveOffers()
+    getAll()
   }, []);
 
 
   const getAll = () => {
-    HTTPService.getAll()
+    offerHTTPService.getAllOffer()
       .then(response => {
         setOffers(response.data);
       })
@@ -43,24 +56,31 @@ const Offer = () => {
 
 
 
-  const retrieveOffers = () => {
-    var offers = OfferTestService.getAll();
-    setOffers(offers);
+  const retrieveOffers = async () => {
+    //var offers = OfferTestService.getAll();
+    await offerHTTPService.getAllOffer().then(data => {
+      console.log(data)
+      setOffers(data.data);
+    })
+
   };
 
   const resfresh = () => {
     retrieveOffers()
-    forceUpdate()
+    //forceUpdate()
   }
 
   const remove = (e, data) => {
     e.preventDefault();
-    var r = window.confirm("Etes-vous sûr que vous voulez supprimer ?");
+    var r = window.confirm("Are you sure ?");
     if (r) {
-      showMessage('Confirmation', offerMessage.delete, 'success')
-      OfferTestService.remove(data)
+      /*  showMessage('Confirmation', offerMessage.delete, 'success')
+       OfferTestService.remove(data) */
       //removeOne(data)
-      resfresh()
+      offerHTTPService.removeOffer(data.id).then(() => {
+        resfresh()
+      })
+
     }
 
   }
@@ -75,35 +95,35 @@ const Offer = () => {
   return (
     <div className="card">
       <div className="card-header">
-        <strong className="card-title">Offre</strong>
+        <strong className="card-title"><i class="menu-icon fa fa-rss"></i> Offers</strong>
       </div>
       <div className="card-body">
-
+        <button data-toggle="modal" data-target="#addOffer" type="button" className="btn btn-success btn-sm"><i class="fa fa-plus" aria-hidden="true"></i> Create</button>
         <table id="example1" className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Nom offre</th>
-              <th>Date debut</th>
-              <th>Date fin</th>
-              <th>Code offre</th>
-              <th>Remise</th>
-              <th>Nom de route</th>
+              <th>Name</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Code</th>
+              <th>Discount</th>
+              <th>Route</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
 
-            {offers.map(item =>
+            {offers && offers.map(item =>
               <tr>
-                <td>{item.offer_name}</td>
-                <td>{item.offer_start_date}</td>
-                <td>{item.offer_end_date}</td>
-                <td>{item.offer_code}</td>
-                <td> <span className="badge badge-primary"> {item.offer_discount}</span> </td>
-                <td>{item.offer_name}</td>
+                <td>{item.name}</td>
+                <td>{item.start}</td>
+                <td>{item.end}</td>
+                <td>{item.code}</td>
+                <td> <span className="badge badge-primary"> {item.discount}</span> </td>
+                <td>{item.travel}</td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                  <button onClick={e => remove(e, offers.indexOf(item))} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                  <button onClick={e => remove(e, item)} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </td>
               </tr>
             )}
@@ -114,31 +134,31 @@ const Offer = () => {
           </tbody>
           <tfoot>
             <tr>
-              <th>Nom offre</th>
-              <th>Date debut</th>
-              <th>Date fin</th>
-              <th>Code offre</th>
-              <th>Remise</th>
-              <th>Nom de route</th>
+              <th>Name</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Code</th>
+              <th>Discount</th>
+              <th>Route</th>
               <th>Actions</th>
             </tr>
           </tfoot>
         </table>
-        <button data-toggle="modal" data-target="#addOffer" type="button" className="btn btn-success btn-sm">Ajouter</button>
+
         <div class="modal fade" id="addOffer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Nouveau</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">New</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <AddOffer />
+                <AddOffer closeModal={closeModalAdd} />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
+                <button ref={closeButtonAdd} type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Close</button>
 
               </div>
             </div>
@@ -155,10 +175,10 @@ const Offer = () => {
                 </button>
               </div>
               <div class="modal-body">
-                <EditOffer offer={updatedItem} />
+                <EditOffer offer={updatedItem} closeModal={closeModalEdit} />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Fermer</button>
+                <button ref={closeButtonEdit} type="button" class="btn btn-secondary" data-dismiss="modal" onClick={resfresh} >Close</button>
 
               </div>
             </div>

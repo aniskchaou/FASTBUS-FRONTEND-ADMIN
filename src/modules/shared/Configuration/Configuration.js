@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Configuration.css';
 import { LoadJS } from '../../../libraries/datatables/datatables';
-import ConfigurationContent from '../Configuration-content/Configuration-content';
+import ConfigurationContent from '../ConfigurationContent/ConfigurationContent';
 
 const Configuration = () => {
   useEffect(() => {
@@ -15,7 +15,7 @@ const Configuration = () => {
 
     <div className="card">
       <div className="card-header">
-        <strong className="card-title">Paramètres</strong>
+        <strong className="card-title"><i class="menu-icon fa fa-cog"></i> Settings</strong>
       </div>
       <div className="card-body">
         <ConfigurationContent />
