@@ -47,7 +47,7 @@ const Station = () => {
 
   const remove = (e, data) => {
     e.preventDefault();
-    var r = window.confirm("Etes-vous sûr que vous voulez supprimer ?");
+    var r = window.confirm("Are you sure ??");
     if (r) {
       /*  showMessage('Confirmation', travelMessage.delete, 'success')
        TravelTestService.remove(data)

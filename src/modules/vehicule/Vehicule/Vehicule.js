@@ -69,7 +69,7 @@ const Vehicule = () => {
 
   const remove = (e, data) => {
     e.preventDefault();
-    var r = window.confirm("Etes-vous sûr que vous voulez supprimer ?");
+    var r = window.confirm("E?");
     if (r) {
       vehiculeHTTPService.removeVehicule(data.id).then(() => {
         getAll()
@@ -96,7 +96,7 @@ const Vehicule = () => {
           <thead>
             <tr>
               <th>Registration </th>
-              <th>Type</th>
+              <th>Brand</th>
               <th>Model</th>
               <th>Chasssis</th>
               <th>Actions</th>
@@ -107,7 +107,7 @@ const Vehicule = () => {
             {vehicules.map(item =>
               <tr>
                 <td>{item.registration}</td>
-                <td>{item.type}</td>
+                <td>{item.brand}</td>
                 <td > <span className="badge badge-primary">{item.model}</span> </td>
                 <td>{item.chassis}</td>
                 <td>

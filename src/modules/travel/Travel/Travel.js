@@ -101,8 +101,8 @@ const Travel = () => {
         <table id="example1" className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Route</th>
+              <th>Reference</th>
+              <th>Route No</th>
               <th>Date</th>
               <th>Price</th>
               <th>Actions</th>
@@ -117,7 +117,7 @@ const Travel = () => {
                 <td><span className="badge badge-primary">{item.title}</span></td>
                 <td>{item.route}</td>
                 <td>{item.date}</td>
-                <td>{item.price}</td>
+                <td>${item.price}</td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                   <button onClick={e => remove(e, item)} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>

@@ -6,11 +6,10 @@ import User from '../../config/user';
 const Footer = () => (
 
 
-  <footer className="site-footer" style={{ display: (User.CONNECTED_USER ? 'block' : 'none') }}>
+  <footer className="site-footer" >
     <div className="footer-inner bg-white">
       <div className="row">
         <div className="col-sm-6">
-          Developed by Delta Dev Software
         </div>
         <div className="col-sm-6 text-right">
 

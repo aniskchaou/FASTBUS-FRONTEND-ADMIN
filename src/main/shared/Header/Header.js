@@ -4,23 +4,23 @@ import User from '../../config/user';
 
 import './Header.css';
 
-const Header = (props) => {
+const Header = ({ connected, handleClick }) => {
     let history = useHistory()
 
 
     const logout = () => {
-        props.rerender();
-        User.CONNECTED_USER = false
+        handleClick(false)
+        localStorage.clear()
         history.push("/login")
     }
 
     return (
-        <div id="right-panel" className="right-panel" style={{ display: (User.CONNECTED_USER ? 'block' : 'none') }}>
+        <div id="right-panel" className="right-panel" >
             <header id="header" className="header">
                 <div className="top-left">
                     <div className="navbar-header">
-                        <a className="navbar-brand" href="./"><img src="images/logo.png" alt="Logo" /></a>
-                        <a className="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo" /></a>
+                        <a className="navbar-brand" href="#"><img src="images/logo.png" alt="Logo" /></a>
+                        <a className="navbar-brand hidden" href="#"><img src="images/logo2.png" alt="Logo" /></a>
                         <a id="menuToggle" className="menutoggle"><i className="fa fa-bars"></i></a>
                     </div>
                 </div>

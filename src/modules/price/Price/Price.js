@@ -102,7 +102,7 @@ const Price = () => {
         <table id="example1" className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Route</th>
+              <th>Route No</th>
 
               <th>Price</th>
               <th>Kids Price</th>
@@ -116,9 +116,9 @@ const Price = () => {
               <tr>
                 <td>{item.route}</td>
 
-                <td ><span className="badge badge-primary">{item.price}</span></td>
-                <td>{item.kidsPrice} </td>
-                <td>{item.specialPrice} </td>
+                <td ><span className="badge badge-primary">${item.price}</span></td>
+                <td>${item.kidsPrice} </td>
+                <td>${item.specialPrice} </td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
                   <button onClick={e => remove(e, item)} type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>

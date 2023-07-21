@@ -29,7 +29,7 @@ import Seat from '../../../modules/seat/Seat/Seat'
 import TravelType from '../../../modules/travel/TravelType/TravelType'
 import VehiculeType from '../../../modules/vehicule/VehiculeType/VehiculeType'
 const Content = () => (
-  <div className="col-md-12" style={{ display: (User.CONNECTED_USER ? 'block' : 'none') }}>
+  <div className="col-md-12" >
 
     <Route exact path="/" component={DashBoard} />
     <Route exact path="/dashboard" component={DashBoard} />

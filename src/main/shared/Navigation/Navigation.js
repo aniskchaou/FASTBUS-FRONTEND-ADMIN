@@ -11,7 +11,7 @@ class Navigation extends React.Component {
     return (
 
 
-      <aside id="left-panel" className="left-panel" style={{ display: (User.CONNECTED_USER ? 'block' : 'none') }}>
+      <aside id="left-panel" className="left-panel" >
         <nav className="navbar navbar-expand-sm navbar-default">
 
           <div id="main-menu" className="main-menu collapse navbar-collapse">

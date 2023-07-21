@@ -119,7 +119,7 @@ const Offer = () => {
                 <td>{item.start}</td>
                 <td>{item.end}</td>
                 <td>{item.code}</td>
-                <td> <span className="badge badge-primary"> {item.discount}</span> </td>
+                <td> <span className="badge badge-primary"> %{item.discount}</span> </td>
                 <td>{item.travel}</td>
                 <td>
                   <button onClick={e => update(e, item)} type="button" data-toggle="modal" data-target="#edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
